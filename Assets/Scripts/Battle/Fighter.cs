@@ -32,16 +32,18 @@ public class Fighter : MonoBehaviour{
         public string GetName(){ return Name; }
 
         public void SetID(int id) { fighter_id = id; } // called by battle_controller
+
+        public void SetPosition(int[] pos){ position = pos; }  // called by battle_controller
         
 
-        protected int ActMove(int[] pos){ // 即時絶対座標(pos)へ移動
+        protected int ActMove(int[] pos){ // 即時, 絶対座標(pos)へ移動
             int ret = battle_controller.Move(fighter_id, pos);
             Debug.Log(Name + ": Move from " + position[0] + ", " + position[1] + " to " + pos[0] + ", " + pos[1] + " : " + ret);
             return ret;
         }
 
 
-        protected int ActAttack(int atk){ // 即時(atk)番目の攻撃を実行
+        protected int ActAttack(int atk){ // 即時, (atk)番目の攻撃を実行
             int ret = battle_controller.Attack(fighter_id, atk);
             Debug.Log(Name + ": Attack " + attacks[atk] + " : " + ret);
             return ret;
