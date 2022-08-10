@@ -20,21 +20,16 @@ public class Fighter : MonoBehaviour{
         private int[] position;
 
 
-        public void Awake(){
+        
+        public void init(int id, int[] pos){
             battle_controller = GameObject.FindWithTag("Battle Controller").GetComponent<BattleController>();
             Assert.IsFalse(battle_controller == null, "Cannot Find Battle Controller!");
-
+            fighter_id = id;
+            position = pos;
             hp = max_hp;
-            position = battle_controller.GetPosition(fighter_id);
-            
         }
-        
+
         public string GetName(){ return Name; }
-
-        public void SetID(int id) { fighter_id = id; } // called by battle_controller
-
-        public void SetPosition(int[] pos){ position = pos; }  // called by battle_controller
-        
 
         protected int ActMove(int[] pos){ // 即時, 絶対座標(pos)へ移動
             int ret = battle_controller.Move(fighter_id, pos);

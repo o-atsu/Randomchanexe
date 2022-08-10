@@ -8,8 +8,11 @@ public class Attack : ScriptableObject{
     private int damage;
     [SerializeField]
     private List<rangeclass> range;
+    [SerializeField]
+    private int delay;
 
    	public int GetDamage(){ return damage;}
+
     public List<int[]> GetRange(){
         List<int[]> ret = new List<int[]>();
         for(int i = 0;i < range.Count;i++){
@@ -18,13 +21,15 @@ public class Attack : ScriptableObject{
         return ret;
     }
 
+    public int GetDelay(){ return delay; }
+
 
     public override string ToString(){
         string r = "";
         for(int i = 0;i < range.Count;i++){
             r += "(" + range[i].coords[0] + ", " + range[i].coords[1] + ")";
         }
-        return "Damage: " + damage + ", range: " + r;
+        return "Damage: " + damage + ", range: " + r + ", delay: " + delay;
     }
 
     // for inspector

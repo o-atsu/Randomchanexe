@@ -17,3 +17,4 @@ MonoBehaviour:
   - coords: 0200000001000000
   - coords: 0000000001000000
   - coords: 0300000003000000
+  delay: 2

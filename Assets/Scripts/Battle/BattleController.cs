@@ -56,6 +56,19 @@ namespace Battle{
                 int[] field_pos = new int[]{enemy_pos[i, 0], enemy_pos[i, 1]};
                 GenerateFighter(tmp, false, field_pos);
             }
+
+            Debug.Log(ShowField());
+        }
+
+        private string ShowField(){
+            string ret = "Field Information:\n";
+            for(int column = field_info.GetLength(1) - 1;column >= 0;column--){
+                for(int row = 0;row < field_info.GetLength(0);row++){
+                    ret += field_info[row, column] + "\t";
+                }
+                ret += "\n";
+            }
+            return ret;
         }
         //
 
@@ -76,7 +89,7 @@ namespace Battle{
                 
                 Fighter fighter = obj.GetComponent<Fighter>();
                 Assert.IsFalse(fighter == null, "Fighter Is Not Attached in " + prefab);
-                fighter.SetPosition(field_pos);
+                fighter.init(obj_id, field_pos);
 
                 if(is_player){ players.Add(obj_id, obj); }
                 else{ enemies.Add(obj_id, obj); }
