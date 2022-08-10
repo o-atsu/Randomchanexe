@@ -4,6 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
+
+// TODO
+// OnGUIで座標とアクション知れる
+// GUI box
+
 namespace Battle{
     public class BattleController : MonoBehaviour{
         public static int CPM = 120;// Command Per Minite

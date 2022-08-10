@@ -7,6 +7,14 @@ using UnityEngine.InputSystem;
 
 namespace Battle{
 public class Fighter : MonoBehaviour{
+        public enum MoveTo{ // WASDの順番で動く方向列挙
+            Up = 1,
+            Left,
+            Down,
+            Right
+        }
+
+
         [SerializeField]
         string Name; // ファイター名
         [SerializeField]
@@ -14,10 +22,11 @@ public class Fighter : MonoBehaviour{
         [SerializeField]
         private int max_hp; // 最大HP
 
-        private BattleController battle_controller;
-        private int fighter_id;
-        private int hp;
-        private int[] position;
+        [SerializeField]
+        protected BattleController battle_controller;
+        protected int fighter_id;
+        protected int hp;
+        protected int[] position;
 
 
         
@@ -44,17 +53,16 @@ public class Fighter : MonoBehaviour{
             return ret;
         }
 
-
         // *FOR DEBUG*
-        void Update(){
-            if(Keyboard.current.aKey.wasPressedThisFrame){
-                int[] tmp = new int[2]{1, 1};
-                ActMove(tmp);
-            }
-            if(Keyboard.current.dKey.wasPressedThisFrame){
-                ActAttack(0);
-            }
-        }
+        //void Update(){
+        //    if(Keyboard.current.aKey.wasPressedThisFrame){
+        //        int[] tmp = new int[2]{1, 1};
+        //        ActMove(tmp);
+        //    }
+        //    if(Keyboard.current.dKey.wasPressedThisFrame){
+        //        ActAttack(0);
+        //    }
+        //}
         //
     }
 }

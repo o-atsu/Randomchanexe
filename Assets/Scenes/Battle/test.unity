@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 80633843}
   - component: {fileID: 80633842}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: BC
   m_TagString: Battle Controller
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage_width: 10
   stage_height: 6
-  tmp: {fileID: 1208546739309531609, guid: 923c250d8b56d7a4ba616827ccb62d72, type: 3}
+  tmp: {fileID: 8782890967640830945, guid: 7315962291291274191c393986b8a7ca, type: 3}
   Player_Names:
   - nanashi
   Enemy_Names:
