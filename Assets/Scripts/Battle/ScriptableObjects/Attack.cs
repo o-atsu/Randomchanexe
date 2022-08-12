@@ -9,7 +9,9 @@ public class Attack : ScriptableObject{
     [SerializeField]
     private List<rangeclass> range;
     [SerializeField]
-    private int delay;
+    private int delay;// (milliseconds)
+    [SerializeField]
+    private int recovery;// (milliseconds)
 
    	public int GetDamage(){ return damage;}
 
@@ -22,6 +24,8 @@ public class Attack : ScriptableObject{
     }
 
     public int GetDelay(){ return delay; }
+
+    public int GetRecovery(){ return recovery; }
 
 
     public override string ToString(){

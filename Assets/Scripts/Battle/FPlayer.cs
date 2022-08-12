@@ -25,21 +25,24 @@ namespace Battle{// 末端クラスでのみAwake使いたいね
 
         
         public void OnMove(InputAction.CallbackContext obj){
-            if(!obj.performed){ return; }
+            //if(!obj.performed){ return; }
             Vector2 in_dir = obj.ReadValue<Vector2>();
             // 十字キーの縦横同時押し -> 後に押したキーを適用
             Vector2 diff = in_dir - now;
             if(now == in_dir){ return; }
             now = in_dir;
 
-            int[] next_dir = new int[]{position[0] + (int)(in_dir.x * Mathf.Abs(diff.x)), position[1] + (int)(in_dir.y * Mathf.Abs(diff.y))};
-            int a = ActMove(next_dir);
+            int[] next_pos = new int[]{position[0] + (int)(in_dir.x * Mathf.Abs(diff.x)), position[1] + (int)(in_dir.y * Mathf.Abs(diff.y))};
+            int a = ActMove(next_pos);
+            if(a == 1){
+                transform.position = BattleController.FieldPosToWorld(next_pos);
+            }
         }
 
         public void OnAttack(InputAction.CallbackContext obj){
             // 押しはじめに攻撃
             if(!obj.started){ return; }
-            int a = ActAttack(atk_id);
+            int a = ActAttack(attacks[atk_id]);
         }
         
     }

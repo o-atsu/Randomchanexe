@@ -18,9 +18,9 @@ public class Fighter : MonoBehaviour{
         [SerializeField]
         string Name; // ファイター名
         [SerializeField]
-        private Attack[] attacks; // 使用する攻撃一覧
+        protected Attack[] attacks; // 使用する攻撃一覧
         [SerializeField]
-        private int max_hp; // 最大HP
+        protected int max_hp; // 最大HP
 
         [SerializeField]
         protected BattleController battle_controller;
@@ -36,21 +36,43 @@ public class Fighter : MonoBehaviour{
             fighter_id = id;
             position = pos;
             hp = max_hp;
+            if(BattleController.IsPlayer(id)){
+                transform.rotation = Quaternion.Euler(0.0f, 90.0f, 0.0f);
+            }else{
+                transform.rotation = Quaternion.Euler(0.0f, -90.0f, 0.0f);
+            }
         }
 
         public string GetName(){ return Name; }
 
+        public int Hit(int damage){// Defeated:0, not:1
+            hp -= damage;
+            if(hp <= 0){
+                Defeated();
+                return 1;
+            }
+            return 0;
+        }
+
         protected int ActMove(int[] pos){ // 即時, 絶対座標(pos)へ移動
             int ret = battle_controller.Move(fighter_id, pos);
-            Debug.Log(Name + ": Move from " + position[0] + ", " + position[1] + " to " + pos[0] + ", " + pos[1] + " : " + ret);
+            // Debug.Log(Name + ": Move from " + position[0] + ", " + position[1] + " to " + pos[0] + ", " + pos[1] + " : " + ret);
+            if(ret == 1){
+                position = pos;
+            }
             return ret;
         }
 
 
-        protected int ActAttack(int atk){ // 即時, (atk)番目の攻撃を実行
+        protected int ActAttack(Attack atk){ // 即時, (atk)番目の攻撃を実行
             int ret = battle_controller.Attack(fighter_id, atk);
-            Debug.Log(Name + ": Attack " + attacks[atk] + " : " + ret);
+            // Debug.Log(Name + ": Attack " + atk + " : " + ret);
             return ret;
+        }
+
+        protected virtual void Defeated(){
+            // Debug.Log(Name + ": Defeated");
+            gameObject.SetActive(false);
         }
 
         // *FOR DEBUG*

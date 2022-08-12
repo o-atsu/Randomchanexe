@@ -154,7 +154,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage_width: 10
   stage_height: 6
-  tmp: {fileID: 8782890967640830945, guid: 7315962291291274191c393986b8a7ca, type: 3}
+  player: {fileID: 8782890967640830945, guid: 7315962291291274191c393986b8a7ca, type: 3}
+  enemy: {fileID: 1208546739309531609, guid: 923c250d8b56d7a4ba616827ccb62d72, type: 3}
   Player_Names:
   - nanashi
   Enemy_Names:
@@ -253,14 +254,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 604802441}
-  m_LocalRotation: {x: 0.13562907, y: 0, z: 0, w: 0.9907597}
-  m_LocalPosition: {x: 5, y: 2.23, z: -6}
+  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
+  m_LocalPosition: {x: 5, y: 3.52, z: -5.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 15.59, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
 --- !u!114 &604802445
 MonoBehaviour:
   m_ObjectHideFlags: 0
