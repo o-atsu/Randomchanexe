@@ -16,7 +16,7 @@ public class Fighter : MonoBehaviour{
 
 
         [SerializeField]
-        string Name; // ファイター名
+        string Name; // ファイター名(表示名)
         [SerializeField]
         protected Attack[] attacks; // 使用する攻撃一覧
         [SerializeField]
@@ -45,6 +45,12 @@ public class Fighter : MonoBehaviour{
 
         public string GetName(){ return Name; }
 
+        public int GetHP(){ return hp; }
+        public int GetHP(bool percentage){ 
+            if(percentage){ return (int)((float)hp / (float)max_hp * 100.0f); }
+            return hp; 
+        }
+
         public int Hit(int damage){// Defeated:0, not:1
             hp -= damage;
             if(hp <= 0){
@@ -54,7 +60,7 @@ public class Fighter : MonoBehaviour{
             return 0;
         }
 
-        protected int ActMove(int[] pos){ // 即時, 絶対座標(pos)へ移動
+        protected int ActMove(int[] pos){ // 絶対座標(pos)へ移動
             int ret = battle_controller.Move(fighter_id, pos);
             // Debug.Log(Name + ": Move from " + position[0] + ", " + position[1] + " to " + pos[0] + ", " + pos[1] + " : " + ret);
             if(ret == 1){
@@ -64,7 +70,7 @@ public class Fighter : MonoBehaviour{
         }
 
 
-        protected int ActAttack(Attack atk){ // 即時, (atk)番目の攻撃を実行
+        protected int ActAttack(Attack atk){ // (atk)番目の攻撃を実行
             int ret = battle_controller.Attack(fighter_id, atk);
             // Debug.Log(Name + ": Attack " + atk + " : " + ret);
             return ret;

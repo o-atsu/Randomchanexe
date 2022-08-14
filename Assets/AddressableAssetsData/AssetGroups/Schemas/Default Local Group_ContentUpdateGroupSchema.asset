@@ -9,15 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17acd7e3e7f0cc84a8f58a2a59b51b88, type: 3}
-  m_Name: straight
+  m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
+  m_Name: Default Local Group_ContentUpdateGroupSchema
   m_EditorClassIdentifier: 
-  damage: 1
-  range:
-  - coords: 0100000000000000
-  - coords: 0200000000000000
-  - coords: 0300000000000000
-  - coords: 0400000000000000
-  - coords: 0500000000000000
-  startup: 0
-  recovery: 1000
+  m_Group: {fileID: 11400000, guid: d26a636c27dd6d544b90ede4191482b1, type: 2}
+  m_StaticContent: 0

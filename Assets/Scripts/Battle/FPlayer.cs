@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,6 +12,7 @@ namespace Battle{// 末端クラスでのみAwake使いたいね
 
         private Vector2 now = new Vector2(0.0f, 0.0f);
         private int atk_id = 0;
+        private bool IsIdle = true;
 
 
         private int InputToState(Vector2 vec){
@@ -25,7 +27,8 @@ namespace Battle{// 末端クラスでのみAwake使いたいね
 
         
         public void OnMove(InputAction.CallbackContext obj){
-            //if(!obj.performed){ return; }
+            if(!IsIdle){ return; }
+
             Vector2 in_dir = obj.ReadValue<Vector2>();
             // 十字キーの縦横同時押し -> 後に押したキーを適用
             Vector2 diff = in_dir - now;
@@ -39,10 +42,18 @@ namespace Battle{// 末端クラスでのみAwake使いたいね
             }
         }
 
-        public void OnAttack(InputAction.CallbackContext obj){
+        public async void OnAttack(InputAction.CallbackContext obj){
             // 押しはじめに攻撃
             if(!obj.started){ return; }
+
+            if(!IsIdle){ return; }
+            IsIdle = false;
+            await Task.Delay(attacks[atk_id].GetStartup());
+
             int a = ActAttack(attacks[atk_id]);
+
+            await Task.Delay(attacks[atk_id].GetRecovery());
+            IsIdle = true;
         }
         
     }

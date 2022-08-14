@@ -9,7 +9,7 @@ public class Attack : ScriptableObject{
     [SerializeField]
     private List<rangeclass> range;
     [SerializeField]
-    private int delay;// (milliseconds)
+    private int startup;// (milliseconds)
     [SerializeField]
     private int recovery;// (milliseconds)
 
@@ -23,7 +23,7 @@ public class Attack : ScriptableObject{
         return ret;
     }
 
-    public int GetDelay(){ return delay; }
+    public int GetStartup(){ return startup; }
 
     public int GetRecovery(){ return recovery; }
 
@@ -33,7 +33,7 @@ public class Attack : ScriptableObject{
         for(int i = 0;i < range.Count;i++){
             r += "(" + range[i].coords[0] + ", " + range[i].coords[1] + ")";
         }
-        return "Damage: " + damage + ", range: " + r + ", delay: " + delay;
+        return "Damage: " + damage + ", range: " + r + ", startup: " + startup + ", recovery: " + recovery;
     }
 
     // for inspector

@@ -1,8 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 
 // TODO
@@ -11,39 +14,22 @@ using UnityEngine.Assertions;
 
 namespace Battle{
     public class BattleController : MonoBehaviour{
-        public static int CPM = 120;// Command Per Minite
-        public int stage_width = 10;
-        public int stage_height = 5;
+        // public static int CPM = 120;// Command Per Minite
+        public readonly int stage_width = 10;
+        public readonly int stage_height = 5;
 
         private Dictionary<int, GameObject> fighters;
         private int[,] field_info;// Down-Left is {0, 0}
 
-        /* 本当は動的に名前とポジション渡して生成したい TODO
-        public BattleController(List<string> player_names, List<string> enemy_names){
-            for(int i = 0;i < player_names.Count;i++){
-                int i_id = GenerateId(true);
-                GameObject obj = Instantiate(tmp, new Vector3(0.0f, 0.0f, 0.0f));
-                players.Add(i_id, obj);
-            }
-
-            for(int i = 0;i < enemy_names.Count;i++){
-                int i_id = GenerateId(false);
-                GameObject obj = Instantiate(tmp, new Vector3(0.0f, 0.0f, 0.0f));
-                enemies.Add(i_id, obj);
-        }
-        */
 
 
-        // *FOR DEBUG*
-        public GameObject player;
-        public GameObject enemy;
-        public List<string> Player_Names; // TODO 名前 to Prefab
-        public List<string> Enemy_Names;
+        async void Awake(){
+            List<string> player_names = AdventureToBattle.PlayerNames; 
+            List<string> enemy_names = AdventureToBattle.EnemyNames;
+            List<int[]> player_pos = AdventureToBattle.PlayerPositions;
+            List<int[]> enemy_pos = AdventureToBattle.EnemyPositions;
 
-        void Awake(){
             fighters = new Dictionary<int, GameObject>();
-            int[,] player_pos = new int[,]{{3, 2}};
-            int[,] enemy_pos = new int[,]{{7, 4}, {8, 2}, {9, 0}};
             field_info = new int[stage_width, stage_height];
             for(int row = 0;row < field_info.GetLength(0);row++){
                 for(int column = 0;column < field_info.GetLength(1);column++){
@@ -51,14 +37,14 @@ namespace Battle{
                 }
             }
 
-            for(int i = 0;i < Player_Names.Count;i++){
-                int[] field_pos = new int[]{player_pos[i, 0], player_pos[i, 1]};
-                GenerateFighter(player, true, field_pos);
+            for(int i = 0;i < player_names.Count;i++){
+                int[] field_pos = new int[]{player_pos[i][0], player_pos[i][1]};
+                await GenerateFighter(player_names[i], true, field_pos);
             }
 
-            for(int i = 0;i < Enemy_Names.Count;i++){
-                int[] field_pos = new int[]{enemy_pos[i, 0], enemy_pos[i, 1]};
-                GenerateFighter(enemy, false, field_pos);
+            for(int i = 0;i < enemy_names.Count;i++){
+                int[] field_pos = new int[]{enemy_pos[i][0], enemy_pos[i][1]};
+                await GenerateFighter(enemy_names[i], false, field_pos);
             }
 
             ShowField();
@@ -74,7 +60,6 @@ namespace Battle{
             }
             Debug.Log(ret);
         }
-        //
 
 
         private int GenerateId(bool is_player){// IDを生成, 一桁目が{0:敵陣営, 1:味方陣営}, 2桁目以降が各陣営の登録済みオブジェクト数
@@ -84,19 +69,25 @@ namespace Battle{
             return id;
         }
 
-        private void GenerateFighter(GameObject prefab, bool is_player, int[] field_pos){// プレハブを指定位置に生成
+        private async Task GenerateFighter(string name, bool is_player, int[] field_pos){// プレハブを指定位置に生成
+            string path = FighterData.GetFighterPath(name);
+            Assert.IsFalse(path == null, "Cannot Find Fighter: " + name);
+            AsyncOperationHandle<GameObject> handle = Addressables.InstantiateAsync(path);
+
             int obj_id = GenerateId(is_player);
-            GameObject obj = Instantiate(prefab);
+            GameObject obj = await handle.Task;
             Vector3 pos = FieldPosToWorld(field_pos);
             obj.transform.position = pos;
+            Debug.Log(field_pos[0] + ", " + field_pos[1]);
             field_info[field_pos[0], field_pos[1]] = obj_id;
                 
             Fighter fighter = obj.GetComponent<Fighter>();
-            Assert.IsFalse(fighter == null, "Fighter Is Not Attached in " + prefab);
+            Assert.IsFalse(fighter == null, "Fighter Is Not Attached in " + name);
             fighter.init(obj_id, field_pos);
 
             fighters.Add(obj_id, obj);
         }
+
 
         private bool InField(int[] pos){
             return (0 <= pos[0] && pos[0] < stage_width) && (0 <= pos[1] && pos[1] < stage_height);
@@ -177,8 +168,8 @@ namespace Battle{
 
         public static bool IsPlayer(int id){ return Convert.ToBoolean(id % 10); }// IDから陣営を判定
         
-        public static int GetDelay(){// delayを返す (milliseconds) /*for Task.Delay(this)*/
-            return Convert.ToInt32(1000 * 60 / CPM);
-        }
+        //public static int GetDelay(){// delayを返す (milliseconds) /*for Task.Delay(this)*/
+        //    return Convert.ToInt32(1000 * 60 / CPM);
+        //}
     }
 }

@@ -154,14 +154,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage_width: 10
   stage_height: 6
-  player: {fileID: 8782890967640830945, guid: 7315962291291274191c393986b8a7ca, type: 3}
-  enemy: {fileID: 1208546739309531609, guid: 923c250d8b56d7a4ba616827ccb62d72, type: 3}
   Player_Names:
-  - nanashi
+  - RandomChanBattle
   Enemy_Names:
-  - nanashi
-  - nanashi
-  - nanashi
+  - for_test
+  - for_test
+  - for_test
 --- !u!4 &80633843
 Transform:
   m_ObjectHideFlags: 0
