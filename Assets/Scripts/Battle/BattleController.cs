@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.SceneManagement;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
@@ -19,7 +20,10 @@ namespace Battle{
         public readonly int stage_height = 5;
 
         private Dictionary<int, GameObject> fighters;
+        private Dictionary<int, bool> islive;
         private int[,] field_info;// Down-Left is {0, 0}
+
+        private string adv_scene = "Playground";
 
 
 
@@ -30,6 +34,7 @@ namespace Battle{
             List<int[]> enemy_pos = AdventureToBattle.EnemyPositions;
 
             fighters = new Dictionary<int, GameObject>();
+            islive = new Dictionary<int, bool>();
             field_info = new int[stage_width, stage_height];
             for(int row = 0;row < field_info.GetLength(0);row++){
                 for(int column = 0;column < field_info.GetLength(1);column++){
@@ -86,6 +91,7 @@ namespace Battle{
             fighter.init(obj_id, field_pos);
 
             fighters.Add(obj_id, obj);
+            islive.Add(obj_id, true);
         }
 
 
@@ -102,11 +108,15 @@ namespace Battle{
         }
 
 
-        public int Move(int id, int[] pos){// Moveできない：0, Move完了：1
-            if(!CanMove(pos, IsPlayer(id))){ return 0; }
+        private void SceneChange(bool player_win){
+            SceneManager.LoadScene(adv_scene, LoadSceneMode.Single);
+        }
+
+        public int Move(int ID, int[] pos){// Moveできない：0, Move完了：1
+            if(!CanMove(pos, IsPlayer(ID))){ return 0; }
             
-            int[] pre = GetPosition(id);
-            field_info[pos[0], pos[1]] = id;
+            int[] pre = GetPosition(ID);
+            field_info[pos[0], pos[1]] = ID;
             field_info[pre[0], pre[1]] = 0;
 
             // ShowField();
@@ -140,17 +150,43 @@ namespace Battle{
             return hit;
         }
 
-        public int[] GetPosition(int id){// IDを渡すとそのオブジェクトのポジションを返す
+        public int Defeated(int ID){
+            // Debug.Log("Defeated: " + ID);
+
+            int[] pos = GetPosition(ID);
+            field_info[pos[0], pos[1]] = 0;
+            islive[ID] = false;
+            // ShowField();
+
+            int num_players = 0;
+            int num_enemies = 0;
+            foreach(KeyValuePair<int, bool> live in islive){
+                if(live.Value){
+                    if(IsPlayer(live.Key)){ num_players++; }
+                    else{ num_enemies++; }
+                }
+            }
+
+            if(num_enemies == 0){
+                Debug.Log("WIN!");
+            }else if(num_enemies == 0){
+                Debug.Log("LOSE...");
+            }
+
+            return 1;
+        }
+
+        public int[] GetPosition(int ID){// IDを渡すとそのオブジェクトのポジションを返す
             for(int row = 0;row < field_info.GetLength(0);row++){
                 for(int column = 0;column < field_info.GetLength(1);column++){
-                    if(id == field_info[row, column]){
+                    if(ID == field_info[row, column]){
                         int[] pos = new int[2]{row, column};
                         return pos;
                     }
                 }
             }
 
-            Debug.Assert(true, "ID:" + id + "Is Not in field_info");
+            Debug.Assert(true, "ID:" + ID + "Is Not in field_info");
             int[] tmp = new int[2]{-1, -1};
             return tmp;
         }
@@ -166,7 +202,7 @@ namespace Battle{
             return world_pos;
         }
 
-        public static bool IsPlayer(int id){ return Convert.ToBoolean(id % 10); }// IDから陣営を判定
+        public static bool IsPlayer(int ID){ return Convert.ToBoolean(ID % 10); }// IDから陣営を判定
         
         //public static int GetDelay(){// delayを返す (milliseconds) /*for Task.Delay(this)*/
         //    return Convert.ToInt32(1000 * 60 / CPM);

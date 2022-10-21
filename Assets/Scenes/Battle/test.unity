@@ -152,14 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 454444f90f5d553499c460aae9113c3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage_width: 10
-  stage_height: 6
-  Player_Names:
-  - RandomChanBattle
-  Enemy_Names:
-  - for_test
-  - for_test
-  - for_test
 --- !u!4 &80633843
 Transform:
   m_ObjectHideFlags: 0

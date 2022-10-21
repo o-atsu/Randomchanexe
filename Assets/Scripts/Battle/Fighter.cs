@@ -78,6 +78,7 @@ public class Fighter : MonoBehaviour{
 
         protected virtual void Defeated(){
             // Debug.Log(Name + ": Defeated");
+            int ret = battle_controller.Defeated(fighter_id);
             gameObject.SetActive(false);
         }
 
