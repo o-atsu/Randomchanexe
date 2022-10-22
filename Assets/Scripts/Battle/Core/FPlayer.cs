@@ -48,6 +48,7 @@ namespace Battle{// 末端クラスでのみAwake使いたいね
 
             if(!IsIdle){ return; }
             IsIdle = false;
+            stage_effector.Startup(true, position, attacks[atk_id]);
             await Task.Delay(attacks[atk_id].GetStartup());
 
             int a = ActAttack(attacks[atk_id]);

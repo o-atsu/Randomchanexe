@@ -16,8 +16,8 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 namespace Battle{
     public class BattleController : MonoBehaviour{
         // public static int CPM = 120;// Command Per Minite
-        public readonly int stage_width = 10;
-        public readonly int stage_height = 5;
+        public static int stage_width = 10;
+        public static int stage_height = 5;
 
         private Dictionary<int, GameObject> fighters;
         private Dictionary<int, bool> islive;
@@ -95,10 +95,6 @@ namespace Battle{
         }
 
 
-        private bool InField(int[] pos){
-            return (0 <= pos[0] && pos[0] < stage_width) && (0 <= pos[1] && pos[1] < stage_height);
-        }
-
         private bool CanMove(int[] pos, bool is_player){// 移動先が動ける範囲かどうか, 別のFighterがいるか
             if(is_player){
                 return (0 <= pos[0] && pos[0] < stage_width / 2) && (0 <= pos[1] && pos[1] < stage_height) && (field_info[pos[0], pos[1]] == 0);
@@ -169,8 +165,10 @@ namespace Battle{
 
             if(num_enemies == 0){
                 Debug.Log("WIN!");
+                SceneChange(true);
             }else if(num_enemies == 0){
                 Debug.Log("LOSE...");
+                SceneChange(false);
             }
 
             return 1;
@@ -203,6 +201,11 @@ namespace Battle{
         }
 
         public static bool IsPlayer(int ID){ return Convert.ToBoolean(ID % 10); }// IDから陣営を判定
+
+        public static bool InField(int[] pos){ // 座標がフィールドの範囲内かどうかを返す
+            return (0 <= pos[0] && pos[0] < stage_width) && (0 <= pos[1] && pos[1] < stage_height);
+        }
+
         
         //public static int GetDelay(){// delayを返す (milliseconds) /*for Task.Delay(this)*/
         //    return Convert.ToInt32(1000 * 60 / CPM);

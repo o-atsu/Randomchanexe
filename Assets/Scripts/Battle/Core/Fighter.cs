@@ -22,8 +22,8 @@ public class Fighter : MonoBehaviour{
         [SerializeField]
         protected int max_hp; // 最大HP
 
-        [SerializeField]
         protected BattleController battle_controller;
+        protected StageEffector stage_effector;
         protected int fighter_id;
         protected int hp;
         protected int[] position;
@@ -32,7 +32,9 @@ public class Fighter : MonoBehaviour{
         
         public void init(int id, int[] pos){
             battle_controller = GameObject.FindWithTag("Battle Controller").GetComponent<BattleController>();
+            stage_effector = GameObject.FindWithTag("Stage Effector").GetComponent<StageEffector>();
             Assert.IsFalse(battle_controller == null, "Cannot Find Battle Controller!");
+            Assert.IsFalse(stage_effector == null, "Cannot Find Stage Effector!");
             fighter_id = id;
             position = pos;
             hp = max_hp;
