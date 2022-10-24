@@ -165,6 +165,51 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!1 &395372015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 395372016}
+  - component: {fileID: 395372017}
+  m_Layer: 0
+  m_Name: AC
+  m_TagString: Adventure Controller
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &395372016
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395372015}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.597487, y: 0.502841, z: -0.5104716}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &395372017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395372015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4810fafe588951f48a5f43df727c1e2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SaveSceneInAwake: 0
 --- !u!1 &542508511
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,7 +731,7 @@ PrefabInstance:
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4
+      value: -2.562
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
@@ -755,7 +800,7 @@ PrefabInstance:
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4
+      value: -2.562
       objectReference: {fileID: 0}
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8,
         type: 3}
@@ -1171,25 +1216,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube
       objectReference: {fileID: 0}
-    - target: {fileID: 4966144718931720818, guid: 1997ef97ba21e62468912c4c0c2daaba,
+    - target: {fileID: 4966144718931720813, guid: 1997ef97ba21e62468912c4c0c2daaba,
         type: 3}
-      propertyPath: enemy_pos.Array.data[0].coords.Array.data[0]
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4966144718931720818, guid: 1997ef97ba21e62468912c4c0c2daaba,
-        type: 3}
-      propertyPath: enemy_pos.Array.data[0].coords.Array.data[1]
+      propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4966144718931720818, guid: 1997ef97ba21e62468912c4c0c2daaba,
-        type: 3}
-      propertyPath: enemy_pos.Array.data[1].coords.Array.data[0]
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4966144718931720818, guid: 1997ef97ba21e62468912c4c0c2daaba,
-        type: 3}
-      propertyPath: enemy_pos.Array.data[1].coords.Array.data[1]
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4966144718931720822, guid: 1997ef97ba21e62468912c4c0c2daaba,
         type: 3}
@@ -1260,6 +1290,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RandomChan
       objectReference: {fileID: 0}
+    - target: {fileID: 3486083774301365979, guid: 37ee681fb354719499b78dc237b20426,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3653374953703105295, guid: 37ee681fb354719499b78dc237b20426,
         type: 3}
       propertyPath: m_RootOrder
@@ -1278,7 +1313,7 @@ PrefabInstance:
     - target: {fileID: 3653374953703105295, guid: 37ee681fb354719499b78dc237b20426,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.438
       objectReference: {fileID: 0}
     - target: {fileID: 3653374953703105295, guid: 37ee681fb354719499b78dc237b20426,
         type: 3}

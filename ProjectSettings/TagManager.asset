@@ -8,6 +8,7 @@ TagManager:
   - Battle Controller
   - Enemy
   - Stage Effector
+  - Adventure Controller
   layers:
   - Default
   - TransparentFX

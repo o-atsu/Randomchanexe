@@ -1,0 +1,28 @@
+{
+    "info": [
+        {
+            "name": "RandomChan",
+            "active": "True",
+            "position_x": "0",
+            "position_y": "0",
+            "position_z": "1.438",
+            "rotation_x": "0",
+            "rotation_y": "0",
+            "rotation_z": "0",
+            "rotation_w": "1",
+            "additional": ""
+        },
+        {
+            "name": "for_test",
+            "active": "True",
+            "position_x": "0",
+            "position_y": "0.915",
+            "position_z": "6.79",
+            "rotation_x": "0",
+            "rotation_y": "0",
+            "rotation_z": "0",
+            "rotation_w": "1",
+            "additional": ""
+        }
+    ]
+}

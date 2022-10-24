@@ -1,0 +1,28 @@
+{
+    "info": [
+        {
+            "name": "RandomChan",
+            "active": "True",
+            "position_x": "-0.1078656",
+            "position_y": "-0.01000011",
+            "position_z": "6.139905",
+            "rotation_x": "0",
+            "rotation_y": "0.004535703",
+            "rotation_z": "0",
+            "rotation_w": "0.9999897",
+            "additional": ""
+        },
+        {
+            "name": "for_test",
+            "active": "False",
+            "position_x": "0",
+            "position_y": "0.915",
+            "position_z": "6.79",
+            "rotation_x": "0",
+            "rotation_y": "0",
+            "rotation_z": "0",
+            "rotation_w": "1",
+            "additional": ""
+        }
+    ]
+}

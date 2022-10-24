@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Adventure{
-    public class APlayer : MonoBehaviour{
+    public class APlayer : AdventureCharacter{
         [SerializeField]
         private List<string> player_names;
         [SerializeField]
         private List<posclass> player_pos;
+
+
+        public override void init(AdventurerInfo info){
+            base.init(info);
+            
+        }
 
         public List<string> GetPlayerNames(){ return player_names; }
 
@@ -19,10 +25,11 @@ namespace Adventure{
             return ret;
         }
 
-        // for inspector
-        [System.SerializableAttribute]
-        public class posclass{
-            public int[] coords = {0, 0};
+        public override Dictionary<string, string> SavedInfo(){
+            Dictionary<string, string> base_info = base.SavedInfo();
+
+            return base_info;
         }
+
     }
 }

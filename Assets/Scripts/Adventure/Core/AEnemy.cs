@@ -1,16 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.Assertions;
 
 namespace Adventure{
-public class AEnemy : MonoBehaviour{
+public class AEnemy : AdventureCharacter{
         [SerializeField]
         private string scene_name = "test";
         [SerializeField]
         private List<string> enemies = new List<string>();
         [SerializeField]
         private List<posclass> enemy_pos;
+
+        private AdventureController adventure_controller;
+
+        public override void init(AdventurerInfo info){
+            base.init(info);
+
+            adventure_controller = GameObject.FindWithTag("Adventure Controller").GetComponent<AdventureController>();
+            Assert.IsFalse(adventure_controller == null, "Cannot Find Adventure Controller!");
+        }
 
         void OnTriggerEnter(Collider other){
             if(!other.CompareTag("Player")){ return; }
@@ -24,7 +33,8 @@ public class AEnemy : MonoBehaviour{
             List<int[]> enemypositions = GetPositions();
             AdventureToBattle.EnemyPositions = enemypositions;
 
-            SceneManager.LoadScene(scene_name, LoadSceneMode.Single);
+
+            adventure_controller.SceneChange(scene_name);
         }
 
         public List<int[]> GetPositions(){
@@ -35,10 +45,12 @@ public class AEnemy : MonoBehaviour{
             return ret;
         }
 
-        // for inspector
-        [System.SerializableAttribute]
-        public class posclass{
-            public int[] coords = {0, 0};
+        public override Dictionary<string, string> SavedInfo(){
+            Dictionary<string, string> base_info = base.SavedInfo();
+            
+            base_info["active"] = false.ToString();
+
+            return base_info;
         }
 
     }

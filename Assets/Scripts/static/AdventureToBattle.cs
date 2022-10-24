@@ -7,4 +7,5 @@ public class AdventureToBattle{
     public static List<string> EnemyNames = new List<string>();
     public static List<int[]> PlayerPositions = new List<int[]>();
     public static List<int[]> EnemyPositions = new List<int[]>();
+    public static string SavedInfoName = "for_test";
 }

@@ -25,6 +25,18 @@ MonoBehaviour:
     m_Address: Assets/Prefabs/Battle/for_test.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 1997ef97ba21e62468912c4c0c2daaba
+    m_Address: Assets/Prefabs/Adventure/for_test.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 37ee681fb354719499b78dc237b20426
+    m_Address: Assets/Prefabs/Adventure/RandomChan.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f81bdf0442b587e45ab0ed2865b8fb4c
+    m_Address: Assets/AdventurerInfo
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 040dc8824da751d418f0e822bb99b5d9, type: 2}
   m_SchemaSet:

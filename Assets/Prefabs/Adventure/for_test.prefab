@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4966144718931720819}
   - component: {fileID: 4966144718931720818}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: for_test
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,10 +110,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0fd1b3a0ee64f840b48816b4c232886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saved: 1
+  prefab_name: for_test
   scene_name: test
   enemies:
   - for_test
   - for_test
   enemy_pos:
-  - coords: 0600000006000000
-  - coords: 0800000007000000
+  - coords: 0700000000000000
+  - coords: 0800000003000000

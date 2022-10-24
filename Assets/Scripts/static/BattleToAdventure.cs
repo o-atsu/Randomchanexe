@@ -5,4 +5,5 @@ using Battle;
 
 public class BattleToAdventure{
     public static List<Attack> RewardAttacks = new List<Attack>();
+    public static string SavedInfoName = "for_test";
 }

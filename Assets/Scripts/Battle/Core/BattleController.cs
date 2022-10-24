@@ -83,7 +83,7 @@ namespace Battle{
             GameObject obj = await handle.Task;
             Vector3 pos = FieldPosToWorld(field_pos);
             obj.transform.position = pos;
-            Debug.Log(field_pos[0] + ", " + field_pos[1]);
+            // Debug.Log(field_pos[0] + ", " + field_pos[1]);
             field_info[field_pos[0], field_pos[1]] = obj_id;
                 
             Fighter fighter = obj.GetComponent<Fighter>();
@@ -105,6 +105,7 @@ namespace Battle{
 
 
         private void SceneChange(bool player_win){
+            BattleToAdventure.SavedInfoName = AdventureToBattle.SavedInfoName;
             SceneManager.LoadScene(adv_scene, LoadSceneMode.Single);
         }
 
