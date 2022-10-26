@@ -37,6 +37,30 @@ MonoBehaviour:
     m_Address: Assets/AdventurerInfo
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 39432191f81371c488b41e35c1a5600f
+    m_Address: Assets/ScriptableObjects/Attacks
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bca792f0414022c4887c3d57414f68c6
+    m_Address: Assets/ScriptableObjects/Attacks/beam.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c51c2045296a9cd448675a7a50a5c280
+    m_Address: Assets/ScriptableObjects/Attacks/hammer.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a52f8213d7504b44a81bae55ef28f3b5
+    m_Address: Assets/ScriptableObjects/Attacks/punch.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 942b648dbbdf0f04599dc12178431673
+    m_Address: Assets/ScriptableObjects/Attacks/sword.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 29c88529f1864254ba133619eed840a7
+    m_Address: Assets/ScriptableObjects/Attacks/x_bit.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 040dc8824da751d418f0e822bb99b5d9, type: 2}
   m_SchemaSet:

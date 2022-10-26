@@ -8,12 +8,17 @@ namespace Battle{// 末端クラスでのみAwake使いたいね
 
     public class FPlayer : Fighter{
 
-        private string[] animator_flags = {"neutral", "Up", "Left", "Down", "Right"}; // TODO animatorの分岐をboolで制御
+        // private string[] animator_flags = {"neutral", "Up", "Left", "Down", "Right"}; // TODO animatorの分岐をboolで制御
 
         private Vector2 now = new Vector2(0.0f, 0.0f);
-        private int atk_id = 0;
         private bool IsIdle = true;
 
+
+        public override void init(int id, int[] pos){
+            base.init(id, pos);
+
+            attacks = AdventureToBattle.select_attacks;
+        }
 
         private int InputToState(Vector2 vec){
             
@@ -23,6 +28,22 @@ namespace Battle{// 末端クラスでのみAwake使いたいね
             else if(vec.x == 1){ return (int)MoveTo.Right; }
 
             return 0;
+        }
+
+        private async Task AttackEvent(int atk_id){
+            if(!IsIdle){ return; }
+            // Debug.Log(attacks.Length);
+
+            int i = atk_id - 1;
+
+            IsIdle = false;
+            stage_effector.Startup(true, position, attacks[i]);
+            await Task.Delay(attacks[i].GetStartup());
+
+            int a = ActAttack(attacks[i]);
+
+            await Task.Delay(attacks[i].GetRecovery());
+            IsIdle = true;
         }
 
         
@@ -42,20 +63,21 @@ namespace Battle{// 末端クラスでのみAwake使いたいね
             }
         }
 
-        public async void OnAttack(InputAction.CallbackContext obj){
+        public async void OnAttack1(InputAction.CallbackContext obj){
             // 押しはじめに攻撃
             if(!obj.started){ return; }
-
-            if(!IsIdle){ return; }
-            IsIdle = false;
-            stage_effector.Startup(true, position, attacks[atk_id]);
-            await Task.Delay(attacks[atk_id].GetStartup());
-
-            int a = ActAttack(attacks[atk_id]);
-
-            await Task.Delay(attacks[atk_id].GetRecovery());
-            IsIdle = true;
+            await AttackEvent(1);
         }
+        public async void OnAttack2(InputAction.CallbackContext obj){
+            if(!obj.started){ return; }
+            await AttackEvent(2);
+        }
+        public async void OnAttack3(InputAction.CallbackContext obj){
+            if(!obj.started){ return; }
+            await AttackEvent(3);
+        }
+
+        
         
     }
 }

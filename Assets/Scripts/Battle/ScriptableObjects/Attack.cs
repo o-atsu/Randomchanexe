@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObject/Create Attack")]
 public class Attack : ScriptableObject{
     [SerializeField]
+    private string display_name;// *DO NOT USE COMMA(,)*
+    [SerializeField]
     private int damage;
     [SerializeField]
     private List<rangeclass> range;
@@ -22,6 +24,8 @@ public class Attack : ScriptableObject{
         }
         return ret;
     }
+
+    public string GetName(){ return display_name; }
 
     public int GetStartup(){ return startup; }
 

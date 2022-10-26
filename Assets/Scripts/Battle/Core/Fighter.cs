@@ -30,7 +30,7 @@ public class Fighter : MonoBehaviour{
 
 
         
-        public void init(int id, int[] pos){
+        public virtual void init(int id, int[] pos){
             battle_controller = GameObject.FindWithTag("Battle Controller").GetComponent<BattleController>();
             stage_effector = GameObject.FindWithTag("Stage Effector").GetComponent<StageEffector>();
             Assert.IsFalse(battle_controller == null, "Cannot Find Battle Controller!");

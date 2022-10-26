@@ -13,11 +13,11 @@ namespace Adventure{
 
         public virtual void init(AdventurerInfo info){
             prefab_name = info.name;
-            gameObject.SetActive(System.Convert.ToBoolean(info.active));
             Vector3 pos = new Vector3(float.Parse(info.position_x), float.Parse(info.position_y), float.Parse(info.position_z));
-            Debug.Log(pos);
+            // Debug.Log(pos);
             transform.position = pos;
             transform.rotation.Set(float.Parse(info.rotation_x), float.Parse(info.rotation_y), float.Parse(info.rotation_z), float.Parse(info.rotation_w));
+            gameObject.SetActive(System.Convert.ToBoolean(info.active));
         }
     
         public virtual Dictionary<string, string> SavedInfo(){// 保存する情報の更新

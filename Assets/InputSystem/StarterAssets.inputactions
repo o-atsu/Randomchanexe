@@ -47,8 +47,8 @@
                     "name": "WASD",
                     "id": "b7594ddb-26c9-4ba2-bd5a-901468929edc",
                     "path": "2DVector(mode=1)",
-                    "interactions": "Press",
-                    "processors": "",
+                    "interactions": "",
+                    "processors": "NormalizeVector2",
                     "groups": "",
                     "action": "Move",
                     "isComposite": true,
@@ -235,9 +235,27 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Attack",
+                    "name": "Attack1",
                     "type": "Button",
-                    "id": "291b4abb-ea0c-4ce6-8102-e3c55f268f5c",
+                    "id": "e3af9ef2-c0df-43da-91a5-07617607015c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Attack2",
+                    "type": "Button",
+                    "id": "945b155c-057f-4a05-810e-17a3fdfe144d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Attack3",
+                    "type": "Button",
+                    "id": "04c2876d-3551-4121-8851-e53b8d8ca9f9",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -245,28 +263,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "58ce7cd1-c97b-4a13-a994-78f3e69c92d5",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "43ada5d3-cb20-4385-893b-5ac6880e10e5",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "WASD",
                     "id": "b2e7c550-395e-4bd3-89bd-8b83518eebcf",
@@ -374,6 +370,39 @@
                     "processors": "StickDeadzone",
                     "groups": "Gamepad",
                     "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9c4d6ddd-cb0c-4ee9-8af1-115083bdc6e2",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fb039694-6303-45a2-9bf7-39a06cd45c81",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "91f80856-1493-40b4-8cc9-ea269ed64a34",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

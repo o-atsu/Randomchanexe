@@ -6575,7 +6575,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8803291168415754434}
         m_TargetAssemblyTypeName: Battle.FPlayer, Assembly-CSharp
-        m_MethodName: OnAttack
+        m_MethodName: OnAttack1
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6585,8 +6585,40 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 291b4abb-ea0c-4ce6-8102-e3c55f268f5c
-    m_ActionName: FPlayer/Attack[/Keyboard/space]
+    m_ActionId: e3af9ef2-c0df-43da-91a5-07617607015c
+    m_ActionName: FPlayer/Attack1[/Keyboard/1]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8803291168415754434}
+        m_TargetAssemblyTypeName: Battle.FPlayer, Assembly-CSharp
+        m_MethodName: OnAttack2
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 945b155c-057f-4a05-810e-17a3fdfe144d
+    m_ActionName: FPlayer/Attack2[/Keyboard/2]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8803291168415754434}
+        m_TargetAssemblyTypeName: Battle.FPlayer, Assembly-CSharp
+        m_MethodName: OnAttack3
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 04c2876d-3551-4121-8851-e53b8d8ca9f9
+    m_ActionName: FPlayer/Attack3[/Keyboard/3]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: FPlayer
@@ -6608,7 +6640,6 @@ MonoBehaviour:
   attacks:
   - {fileID: 11400000, guid: 942b648dbbdf0f04599dc12178431673, type: 2}
   max_hp: 4
-  battle_controller: {fileID: 0}
 --- !u!1 &8796540598424410465
 GameObject:
   m_ObjectHideFlags: 0

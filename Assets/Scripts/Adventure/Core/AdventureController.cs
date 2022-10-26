@@ -19,6 +19,8 @@ namespace Adventure{
         
         
         [SerializeField]
+        private int repop_time = 10000;// milliseconds
+        [SerializeField]
         private bool SaveSceneInAwake = false;
 
         private string InfoPath = "Assets/AdventurerInfo/";
@@ -46,7 +48,20 @@ namespace Adventure{
             }
             string LoadInfoName = BattleToAdventure.SavedInfoName;
             
+            // await Task.Delay(1000);
             await LoadInfo(LoadInfoName);
+        }
+
+
+        async void Start(){// repop enemy
+            string scene_name = SceneManager.GetActiveScene().name;
+            await Task.Delay(repop_time);
+
+
+            if(scene_name != SceneManager.GetActiveScene().name){ return; }
+            foreach(GameObject o in objects){
+                if(!o.activeSelf){ o.SetActive(true); }
+            }
         }
 
         public async void SceneChange(string scene_name){
@@ -86,9 +101,9 @@ namespace Adventure{
             
             int i = 0;
             foreach(GameObject chara in objects){
-                Debug.Log(chara);
+                // Debug.Log(chara);
                 Dictionary<string, string> c_info = chara.GetComponent<AdventureCharacter>().SavedInfo();
-                Debug.Log(c_info.Count);
+                // Debug.Log(c_info.Count);
                 ads.info[i] = new AdventurerInfo(c_info);
 
                 
