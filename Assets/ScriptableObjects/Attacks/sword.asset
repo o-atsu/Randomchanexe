@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: sword
   m_EditorClassIdentifier: 
   display_name: "\u5927\u5263"
-  damage: 5
+  damage: 10
   range:
   - coords: 0100000000000000
   - coords: 0200000000000000

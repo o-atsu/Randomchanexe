@@ -109,6 +109,10 @@ MonoBehaviour:
     m_Address: Assets/AdventurerInfo/INITIAL.json
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 130ace16d8713d542b3076897a78d7d7
+    m_Address: Assets/Prefabs/Battle/FRandomChan.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 040dc8824da751d418f0e822bb99b5d9, type: 2}
   m_SchemaSet:

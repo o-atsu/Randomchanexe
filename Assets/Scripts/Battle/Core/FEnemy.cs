@@ -12,8 +12,8 @@ namespace Battle{
         [SerializeField]
         private Attack reward;
 
-        private Animator anim;
-        private int pre_action = 200;
+        protected Animator anim;
+        protected int pre_action = 200;
         protected int player_id = 1;
 
 
@@ -30,7 +30,7 @@ namespace Battle{
         }
 
 
-        protected async Task AttackEvent(int atk_id){
+        protected virtual async Task AttackEvent(int atk_id){
             int i = atk_id - 1;
             anim.SetTrigger("Trigger");
 

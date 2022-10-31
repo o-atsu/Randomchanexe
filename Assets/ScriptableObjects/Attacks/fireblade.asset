@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: fireblade
   m_EditorClassIdentifier: 
   display_name: "\u30D5\u30A1\u30A4\u30A2\u30FC\u30D6\u30EC\u30FC\u30C9"
-  damage: 7
+  damage: 15
   range:
   - coords: 01000000ffffffff
   - coords: 0100000000000000

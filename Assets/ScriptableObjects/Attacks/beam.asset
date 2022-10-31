@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: beam
   m_EditorClassIdentifier: 
   display_name: "\u30D3\u30FC\u30E0"
-  damage: 20
+  damage: 30
   range:
   - coords: 01000000feffffff
   - coords: 01000000ffffffff

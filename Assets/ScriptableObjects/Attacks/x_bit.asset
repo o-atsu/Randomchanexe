@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: x_bit
   m_EditorClassIdentifier: 
   display_name: "X\u30D3\u30C3\u30C8"
-  damage: 3
+  damage: 4
   range:
   - coords: 03000000ffffffff
   - coords: 0300000001000000
