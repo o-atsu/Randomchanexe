@@ -67,6 +67,7 @@ public class Fighter : MonoBehaviour{
             // Debug.Log(Name + ": Move from " + position[0] + ", " + position[1] + " to " + pos[0] + ", " + pos[1] + " : " + ret);
             if(ret == 1){
                 position = pos;
+                transform.position = BattleController.FieldPosToWorld(pos);
             }
             return ret;
         }

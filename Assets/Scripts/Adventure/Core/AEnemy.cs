@@ -19,6 +19,7 @@ public class AEnemy : AdventureCharacter{
 
             adventure_controller = GameObject.FindWithTag("Adventure Controller").GetComponent<AdventureController>();
             Assert.IsFalse(adventure_controller == null, "Cannot Find Adventure Controller!");
+            
         }
 
         void OnTriggerEnter(Collider other){
@@ -47,8 +48,7 @@ public class AEnemy : AdventureCharacter{
 
         public override Dictionary<string, string> SavedInfo(){
             Dictionary<string, string> base_info = base.SavedInfo();
-            
-            base_info["active"] = false.ToString();
+
 
             return base_info;
         }

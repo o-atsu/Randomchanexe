@@ -9,19 +9,21 @@ namespace Adventure{
         private bool saved = true;
         [SerializeField]
         private string prefab_name = "for_test";
-        protected Dictionary<string, string> saved_component = new Dictionary<string, string>();
+        protected Dictionary<string, string> saved_component;
 
         public virtual void init(AdventurerInfo info){
             prefab_name = info.name;
             Vector3 pos = new Vector3(float.Parse(info.position_x), float.Parse(info.position_y), float.Parse(info.position_z));
             // Debug.Log(pos);
             transform.position = pos;
-            transform.rotation.Set(float.Parse(info.rotation_x), float.Parse(info.rotation_y), float.Parse(info.rotation_z), float.Parse(info.rotation_w));
+            transform.rotation = new Quaternion(float.Parse(info.rotation_x), float.Parse(info.rotation_y), float.Parse(info.rotation_z), float.Parse(info.rotation_w));
             gameObject.SetActive(System.Convert.ToBoolean(info.active));
         }
     
         public virtual Dictionary<string, string> SavedInfo(){// 保存する情報の更新
             if(!saved){ return null; }
+            
+            saved_component = new Dictionary<string, string>();
 
             saved_component.Add("name", prefab_name);
             saved_component.Add("active", true.ToString());

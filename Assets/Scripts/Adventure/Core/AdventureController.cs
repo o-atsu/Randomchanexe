@@ -18,8 +18,8 @@ namespace Adventure{
     public class AdventureController : MonoBehaviour{
         
         
-        [SerializeField]
-        private int repop_time = 10000;// milliseconds
+        // [SerializeField]
+        // private int repop_time = 10000;// milliseconds
         [SerializeField]
         private bool SaveSceneInAwake = false;
 
@@ -53,16 +53,17 @@ namespace Adventure{
         }
 
 
-        async void Start(){// repop enemy
-            string scene_name = SceneManager.GetActiveScene().name;
-            await Task.Delay(repop_time);
+        //async void Start(){// repop enemy
+            //string scene_name = SceneManager.GetActiveScene().name;
+            //await Task.Delay(repop_time);
 
 
-            if(scene_name != SceneManager.GetActiveScene().name){ return; }
-            foreach(GameObject o in objects){
-                if(!o.activeSelf){ o.SetActive(true); }
-            }
-        }
+            //if(scene_name != SceneManager.GetActiveScene().name){ return; }
+
+            //foreach(GameObject o in objects){
+                //if(!o.activeSelf){ o.SetActive(true); }
+            //}
+        //}
 
         public async void SceneChange(string scene_name){
             
@@ -77,7 +78,7 @@ namespace Adventure{
             
             AsyncOperationHandle<TextAsset> handle = Addressables.LoadAssetAsync<TextAsset>(@InfoPath + @FileName + @".json");
             TextAsset txt = await handle.Task;
-            Debug.Log(txt);
+            Debug.Log(FileName);
             string json = txt.ToString();
 
             

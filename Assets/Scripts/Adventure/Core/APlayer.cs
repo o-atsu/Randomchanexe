@@ -12,8 +12,9 @@ namespace Adventure{
         [SerializeField]
         private int num_attacks = 3;
 
+        [SerializeField]
         private Attack[] get_attacks; 
-        private int[] select_attacks; 
+        private int[] select_attacks = new int[]{1, 1, 1}; 
 
 
         private void change_attacks(int before, int after){
@@ -76,6 +77,9 @@ namespace Adventure{
 
         public override Dictionary<string, string> SavedInfo(){// additional ... select -> getの順attackを保存
             Dictionary<string, string> base_info = base.SavedInfo();
+            
+            float pos_z = float.Parse(base_info["position_z"]) - 2.0f;
+            base_info["position_z"] = pos_z.ToString();
 
             string save_atks = "SELECT,";
             foreach(int v in select_attacks){
@@ -86,6 +90,7 @@ namespace Adventure{
             foreach(Attack a in get_attacks){
                 save_atks += a.GetName() + ",";
             }
+            save_atks = save_atks.Remove(save_atks.Length - 1, 1);
 
             base_info["additional"] = save_atks;
 

@@ -61,6 +61,34 @@ MonoBehaviour:
     m_Address: Assets/ScriptableObjects/Attacks/x_bit.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 9eee21e4f59c914469d7ed7f1e0029d6
+    m_Address: Assets/Prefabs/Adventure/2Handed Warrior.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 374a33de8370e5b408aaa37b5d3f5f4d
+    m_Address: Assets/Prefabs/Adventure
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8a1875fe2f6b5684683ecdbea1d8a239
+    m_Address: Assets/Prefabs/Adventure/Archer Warrior.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e29b3ce1ef90bb24fbefd7e1fc776501
+    m_Address: Assets/Prefabs/Adventure/Knight Warrior.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a5a863126fbdf434facbc71517f24d6b
+    m_Address: Assets/Prefabs/Adventure/Mage Warrior.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5a563bb4d3627944ebb3216c0dc117fa
+    m_Address: Assets/AdventurerInfo/for_test.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 969c48ada5f051540a4992f3f330dda2
+    m_Address: Assets/Prefabs/Battle/2HandedWarrior.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 040dc8824da751d418f0e822bb99b5d9, type: 2}
   m_SchemaSet:
