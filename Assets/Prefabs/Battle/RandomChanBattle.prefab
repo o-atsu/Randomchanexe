@@ -6290,7 +6290,7 @@ Animator:
   m_GameObject: {fileID: 8782890967640830945}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: e71bc24299785c943b2565a9ce386feb, type: 2}
-  m_Controller: {fileID: 9100000, guid: 40db3173a05ae3242b1c182a09b0a183, type: 2}
+  m_Controller: {fileID: 9100000, guid: 549bb95137b92c94ca017177e7eb17c4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -6639,7 +6639,7 @@ MonoBehaviour:
   Name: "\u3089\u3093\u3060\u3080\u3061\u3083\u3093"
   attacks:
   - {fileID: 11400000, guid: 942b648dbbdf0f04599dc12178431673, type: 2}
-  max_hp: 4
+  max_hp: 30
 --- !u!1 &8796540598424410465
 GameObject:
   m_ObjectHideFlags: 0

@@ -198,8 +198,10 @@ MonoBehaviour:
   saved: 1
   prefab_name: MageWarrior
   scene_name: test
-  enemies: []
-  enemy_pos: []
+  enemies:
+  - MageWarrior
+  enemy_pos:
+  - coords: 0800000002000000
 --- !u!1 &1516863090039389588
 GameObject:
   m_ObjectHideFlags: 0

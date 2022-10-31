@@ -2641,6 +2641,9 @@ MonoBehaviour:
   - RandomChanBattle
   player_pos:
   - coords: 0200000002000000
+  num_attacks: 3
+  get_attacks:
+  - {fileID: 11400000, guid: a52f8213d7504b44a81bae55ef28f3b5, type: 2}
 --- !u!1 &3507837431031463810
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,10 +15,10 @@ MonoBehaviour:
   display_name: "X\u30D3\u30C3\u30C8"
   damage: 3
   range:
-  - coords: 01000000ffffffff
-  - coords: 0100000001000000
-  - coords: 0200000000000000
   - coords: 03000000ffffffff
   - coords: 0300000001000000
+  - coords: 0400000000000000
+  - coords: 05000000ffffffff
+  - coords: 0500000001000000
   startup: 600
   recovery: 200

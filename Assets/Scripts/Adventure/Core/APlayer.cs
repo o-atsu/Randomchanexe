@@ -38,7 +38,8 @@ namespace Adventure{
 
             Attack[] atks = new Attack[num_attacks];
             for(int i = 0;i < num_attacks;i++){
-                atks[i] = get_attacks[select_attacks[i]];
+                // Debug.Log(select_attacks[i]);
+                atks[i] = get_attacks[select_attacks[i] - 1];
             }
             AdventureToBattle.select_attacks = atks;
         }
@@ -47,22 +48,38 @@ namespace Adventure{
         public override void init(AdventurerInfo info){
             base.init(info);
             
+            List<Attack> rewarded = BattleToAdventure.RewardAttacks;
+            
             string[] atks = info.additional.Split(',');
-            get_attacks = new Attack[atks.Length - num_attacks - 2];
+            get_attacks = new Attack[atks.Length + rewarded.Count - num_attacks - 2];
             select_attacks = new int[num_attacks];
             
             Assert.IsTrue(atks[0] == "SELECT", "additional info in APlayer is invalid");
             Assert.IsTrue(atks[num_attacks + 1] == "GET", "additional info in APlayer is invalid");
             for(int i = 1;i < num_attacks + 1;i++){
-                // Debug.Log(atks[i]);
                 select_attacks[i - 1] = int.Parse(atks[i]);
             }
+            
+
+            bool[] new_atk = new bool[rewarded.Count];
+            for(int i = 0;i < rewarded.Count;i++){ new_atk[i] = true; }
+            
             for(int i = num_attacks + 2;i < atks.Length;i++){
-                // Debug.Log(atks[i]);
+                Debug.Log(atks[i]);
                 get_attacks[i - num_attacks - 2] = AttackData.NameToAttack(atks[i]);
+                
+                for(int k = 0;k < rewarded.Count;k++){
+                    if(atks[i] == rewarded[k].GetName()){ new_atk[k] = false; }
+                    // Debug.Log(rewarded[k].GetName());
+                }
+            }
+            
+            for(int i = 0;i < rewarded.Count;i++){
+                if(new_atk[i]){ get_attacks[get_attacks.Length - i - 1] = rewarded[i]; }
             }
 
             change_attacks(0, 0);
+            BattleToAdventure.RewardAttacks = new List<Attack>();
         }
 
         public List<string> GetPlayerNames(){ return player_names; }

@@ -9,9 +9,6 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
 
-// TODO
-// OnGUIで座標とアクション知れる
-// GUI box
 
 namespace Battle{
     public class BattleController : MonoBehaviour{

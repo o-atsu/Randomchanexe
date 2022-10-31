@@ -1833,7 +1833,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2766725715632074627}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22f8445ce871a9b46b22d4812ecda9b4, type: 3}
   m_Name: 
@@ -1939,11 +1939,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c7c48d88167157479c3c43560efb6cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 2HandedWarrior
+  Name: "\u30CF\u30F3\u30BF\u30FC"
   attacks:
   - {fileID: 11400000, guid: 942b648dbbdf0f04599dc12178431673, type: 2}
-  max_hp: 20
+  max_hp: 40
   cooltime: 300
+  reward: {fileID: 11400000, guid: 942b648dbbdf0f04599dc12178431673, type: 2}
 --- !u!1 &5993992343483577545
 GameObject:
   m_ObjectHideFlags: 0

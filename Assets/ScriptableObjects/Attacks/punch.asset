@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: punch
   m_EditorClassIdentifier: 
   display_name: "\u30D1\u30F3\u30C1"
-  damage: 3
+  damage: 5
   range:
   - coords: 0100000000000000
   startup: 200

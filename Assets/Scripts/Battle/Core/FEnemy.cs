@@ -9,8 +9,11 @@ namespace Battle{
 
         [SerializeField]
         protected int cooltime = 300;
+        [SerializeField]
+        private Attack reward;
 
         private Animator anim;
+        private int pre_action = 200;
         protected int player_id = 1;
 
 
@@ -20,25 +23,35 @@ namespace Battle{
 
             anim = transform.GetChild(0).gameObject.GetComponent<Animator>();
         }
-        
-        async void Start(){
+
+
+        async Task Start(){
             await Pattern();
         }
 
+
         protected async Task AttackEvent(int atk_id){
             int i = atk_id - 1;
-            anim.SetBool("Trigger", true);
+            anim.SetTrigger("Trigger");
 
             stage_effector.Startup(false, position, attacks[i]);
-            await Task.Delay(attacks[i].GetStartup());
+            await Task.Delay(attacks[i].GetStartup() - pre_action);
 
-            anim.SetBool("Attacked", true);
+            anim.SetTrigger("Attacked");
+            await Task.Delay(pre_action);
             int a = ActAttack(attacks[i]);
 
 
             await Task.Delay(attacks[i].GetRecovery());
-            anim.SetBool("Attacked", false);
-            anim.SetBool("Trigger", false);
+
+        }
+        
+        protected override void Defeated(){
+            if(reward != null){
+                BattleToAdventure.RewardAttacks.Add(reward);
+            }
+            
+            base.Defeated();
         }
 
 

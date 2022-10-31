@@ -7,16 +7,22 @@ using UnityEngine.InputSystem;
 namespace Battle{// 末端クラスでのみAwake使いたいね
 
     public class FPlayer : Fighter{
-
-
+        
+        private Dictionary<string, int> NameToAnimID = new Dictionary<string, int>(){{"ビーム", 1}, {"ファイアーブレード", 2}, {"パンチ", 3}, {"大剣", 4}, {"Xビット", 5}};
+        private int pre_action = 200;
+        
         private Vector2 now = new Vector2(0.0f, 0.0f);
         private bool IsIdle = true;
+        private Animator anim;
+
+        
 
 
         public override void init(int id, int[] pos){
             base.init(id, pos);
 
             attacks = AdventureToBattle.select_attacks;
+            anim = gameObject.GetComponent<Animator>();
             // Debug.Log(id);
         }
 
@@ -28,9 +34,14 @@ namespace Battle{// 末端クラスでのみAwake使いたいね
             int i = atk_id - 1;
 
             IsIdle = false;
+            anim.SetInteger("motion", NameToAnimID[attacks[i].GetName()]);
+            anim.SetTrigger("Trigger");
             stage_effector.Startup(true, position, attacks[i]);
-            await Task.Delay(attacks[i].GetStartup());
-
+            
+            await Task.Delay(attacks[i].GetStartup() - pre_action);
+            
+            anim.SetTrigger("Attacked");
+            await Task.Delay(pre_action);
             int a = ActAttack(attacks[i]);
 
             await Task.Delay(attacks[i].GetRecovery());

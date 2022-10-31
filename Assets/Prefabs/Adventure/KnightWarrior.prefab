@@ -2010,8 +2010,10 @@ MonoBehaviour:
   saved: 1
   prefab_name: KnightWarrior
   scene_name: test
-  enemies: []
-  enemy_pos: []
+  enemies:
+  - KnightWarrior
+  enemy_pos:
+  - coords: 0800000004000000
 --- !u!1 &5904473126160845901
 GameObject:
   m_ObjectHideFlags: 0

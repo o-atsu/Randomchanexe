@@ -198,8 +198,14 @@ MonoBehaviour:
   saved: 1
   prefab_name: ArcherWarrior
   scene_name: test
-  enemies: []
-  enemy_pos: []
+  enemies:
+  - ArcherWarrior
+  - ArcherWarrior
+  - 2HandedWarrior
+  enemy_pos:
+  - coords: 0600000003000000
+  - coords: 0700000001000000
+  - coords: 0800000002000000
 --- !u!1001 &6588027956738916428
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17acd7e3e7f0cc84a8f58a2a59b51b88, type: 3}
-  m_Name: hammer
+  m_Name: fireblade
   m_EditorClassIdentifier: 
-  display_name: "\u30CF\u30F3\u30DE\u30FC"
+  display_name: "\u30D5\u30A1\u30A4\u30A2\u30FC\u30D6\u30EC\u30FC\u30C9"
   damage: 7
   range:
   - coords: 01000000ffffffff
