@@ -1,24 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17acd7e3e7f0cc84a8f58a2a59b51b88, type: 3}
-  m_Name: x_bit
-  m_EditorClassIdentifier: 
-  display_name: "X\u30D3\u30C3\u30C8"
-  damage: 4
-  range:
-  - coords: 03000000ffffffff
-  - coords: 0300000001000000
-  - coords: 0400000000000000
-  - coords: 05000000ffffffff
-  - coords: 0500000001000000
-  startup: 600
-  recovery: 200
+version https://git-lfs.github.com/spec/v1
+oid sha256:932ff91ac01040e50b945a0c48e58bdf2d98e9f76eda340f22c44981e14e210f
+size 629

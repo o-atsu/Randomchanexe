@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4966144718931720816}
   - component: {fileID: 4966144718931720819}
   - component: {fileID: 4966144718931720818}
+  - component: {fileID: -5770765222672062157}
   m_Layer: 0
   m_Name: for_test
   m_TagString: Enemy
@@ -119,3 +120,15 @@ MonoBehaviour:
   enemy_pos:
   - coords: 0700000000000000
   - coords: 0800000003000000
+--- !u!114 &-5770765222672062157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4966144718931720813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 488e7a6442daf2c40abad1895ee81344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3172252269893524946}
   - component: {fileID: 5273316599590114727}
   - component: {fileID: 5733448702520637643}
+  - component: {fileID: 1254326743361234725}
   m_Layer: 8
   m_Name: 2HandedWarrior
   m_TagString: Enemy
@@ -202,6 +203,18 @@ MonoBehaviour:
   - 2HandedWarrior
   enemy_pos:
   - coords: 0700000002000000
+--- !u!114 &1254326743361234725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345579770719332578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 488e7a6442daf2c40abad1895ee81344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2469837152637618231
 GameObject:
   m_ObjectHideFlags: 0

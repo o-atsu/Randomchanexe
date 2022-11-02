@@ -1,26 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17acd7e3e7f0cc84a8f58a2a59b51b88, type: 3}
-  m_Name: sword
-  m_EditorClassIdentifier: 
-  display_name: "\u5927\u5263"
-  damage: 10
-  range:
-  - coords: 0100000000000000
-  - coords: 0200000000000000
-  - coords: 0300000000000000
-  - coords: 0400000000000000
-  - coords: 0500000000000000
-  - coords: 0600000000000000
-  - coords: 0700000000000000
-  startup: 1000
-  recovery: 500
+version https://git-lfs.github.com/spec/v1
+oid sha256:f33b1c9146132a376f99bb7f3db79cd3a704f0dcda84c269c3e5631436c6a658
+size 682

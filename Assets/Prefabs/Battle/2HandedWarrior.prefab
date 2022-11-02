@@ -1761,6 +1761,7 @@ GameObject:
   - component: {fileID: 1787662338379438771}
   - component: {fileID: 9072363250831594182}
   - component: {fileID: 5273316599574076875}
+  - component: {fileID: -2459427694730176120}
   m_Layer: 8
   m_Name: 2HandedWarrior
   m_TagString: Enemy
@@ -1945,6 +1946,18 @@ MonoBehaviour:
   max_hp: 40
   cooltime: 300
   reward: {fileID: 11400000, guid: 942b648dbbdf0f04599dc12178431673, type: 2}
+--- !u!114 &-2459427694730176120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2766725715632074627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 488e7a6442daf2c40abad1895ee81344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5993992343483577545
 GameObject:
   m_ObjectHideFlags: 0

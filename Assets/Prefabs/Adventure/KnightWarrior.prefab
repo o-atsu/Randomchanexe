@@ -1829,6 +1829,7 @@ GameObject:
   - component: {fileID: 2577215221365157749}
   - component: {fileID: 7605971691472863876}
   - component: {fileID: 4970628059015968897}
+  - component: {fileID: -5220954696125328041}
   m_Layer: 8
   m_Name: KnightWarrior
   m_TagString: Enemy
@@ -2014,6 +2015,18 @@ MonoBehaviour:
   - KnightWarrior
   enemy_pos:
   - coords: 0800000004000000
+--- !u!114 &-5220954696125328041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120760684100737605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 488e7a6442daf2c40abad1895ee81344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5904473126160845901
 GameObject:
   m_ObjectHideFlags: 0

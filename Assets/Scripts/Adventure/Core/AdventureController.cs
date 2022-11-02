@@ -69,7 +69,7 @@ namespace Adventure{
             
             await SaveInfo("RECENT");
             
-            SceneManager.LoadScene(scene_name, LoadSceneMode.Single);
+            SceneManager.LoadSceneAsync(scene_name, LoadSceneMode.Single);
         }
 
 
@@ -84,8 +84,8 @@ namespace Adventure{
             
             Adventurers ads = JsonUtility.FromJson<Adventurers>(json);
             
-            foreach(AdventurerInfo info in ads.info){
-                await GenerateAdventurer(info);
+            for(int i = 0;i < ads.info.Length;i++){
+                await GenerateAdventurer(ads.info[i], i);
             }
         }
 
@@ -126,10 +126,10 @@ namespace Adventure{
 
         }
         
-        private async Task GenerateAdventurer(AdventurerInfo info){// プレハブを指定位置に生成
+        private async Task GenerateAdventurer(AdventurerInfo info, int i){// プレハブを指定位置に生成
             string path = AdventureData.GetAdventurePath(info.name);
             Assert.IsFalse(path == null, "Cannot Find Adventurer: " + info.name);
-            AsyncOperationHandle<GameObject> handle = Addressables.InstantiateAsync(path);
+            AsyncOperationHandle<GameObject> handle = Addressables.InstantiateAsync(path, new Vector3(i, i, i), Quaternion.identity);
 
             GameObject chara = await handle.Task;
                 

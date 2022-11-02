@@ -1,28 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17acd7e3e7f0cc84a8f58a2a59b51b88, type: 3}
-  m_Name: fireblade
-  m_EditorClassIdentifier: 
-  display_name: "\u30D5\u30A1\u30A4\u30A2\u30FC\u30D6\u30EC\u30FC\u30C9"
-  damage: 15
-  range:
-  - coords: 01000000ffffffff
-  - coords: 0100000000000000
-  - coords: 0100000001000000
-  - coords: 02000000ffffffff
-  - coords: 0200000000000000
-  - coords: 0200000001000000
-  - coords: 03000000ffffffff
-  - coords: 0300000000000000
-  - coords: 0300000001000000
-  startup: 1000
-  recovery: 800
+version https://git-lfs.github.com/spec/v1
+oid sha256:4807afc0678671f5bb43c60ab395600bdaf03fa07d0421bae1fab696ae66e15f
+size 786

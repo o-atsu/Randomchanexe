@@ -2391,6 +2391,7 @@ GameObject:
   - component: {fileID: 1867027811239147619}
   - component: {fileID: -4598271814661279596}
   - component: {fileID: -3462192409628343062}
+  - component: {fileID: -8243294151219463155}
   m_Layer: 8
   m_Name: AERandomChan
   m_TagString: Enemy
@@ -2713,6 +2714,18 @@ MonoBehaviour:
   - FRandomChan
   enemy_pos:
   - coords: 0700000002000000
+--- !u!114 &-8243294151219463155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3975728215375885999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 488e7a6442daf2c40abad1895ee81344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4027280781481390070
 GameObject:
   m_ObjectHideFlags: 0

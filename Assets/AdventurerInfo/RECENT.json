@@ -3,13 +3,13 @@
         {
             "name": "RandomChan",
             "active": "True",
-            "position_x": "4.962285",
-            "position_y": "-0.01000005",
-            "position_z": "2.933695",
+            "position_x": "-0.6883422",
+            "position_y": "-0.01000011",
+            "position_z": "4.345428",
             "rotation_x": "0",
-            "rotation_y": "0.05582828",
+            "rotation_y": "0.0777145",
             "rotation_z": "0",
-            "rotation_w": "0.9984404",
+            "rotation_w": "0.9969757",
             "additional": "SELECT,1,4,3,GET,大剣,パンチ,ビーム,Xビット,ファイアーブレード"
         },
         {

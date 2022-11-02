@@ -17,7 +17,7 @@ namespace Adventure{
         private int[] select_attacks = new int[]{1, 1, 1}; 
 
 
-        private void change_attacks(int before, int after){
+        public void change_attacks(int before, int after){
             if(before != after){// 同じ値の引数でないなら入れ替え
                 int b_pos = -1;
                 int a_pos = -1;
@@ -112,6 +112,14 @@ namespace Adventure{
             base_info["additional"] = save_atks;
 
             return base_info;
+        }
+
+
+        public Attack[] GetGetAttacks(){
+            return get_attacks;
+        }
+        public int[] GetSelectAttacks(){
+            return select_attacks;
         }
 
     }

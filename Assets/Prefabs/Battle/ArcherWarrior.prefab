@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3625447787592808674}
   - component: {fileID: 6100906082485905547}
   - component: {fileID: 3190098681755171790}
+  - component: {fileID: 5995357651037910945}
   m_Layer: 8
   m_Name: ArcherWarrior
   m_TagString: Enemy
@@ -202,6 +203,18 @@ MonoBehaviour:
   cooltime: 300
   reward: {fileID: 11400000, guid: 29c88529f1864254ba133619eed840a7, type: 2}
   offset: 200
+--- !u!114 &5995357651037910945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935132990784310738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 488e7a6442daf2c40abad1895ee81344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2471755845746238744
 PrefabInstance:
   m_ObjectHideFlags: 0

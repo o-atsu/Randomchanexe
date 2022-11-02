@@ -1343,6 +1343,7 @@ GameObject:
   - component: {fileID: 454449245225784725}
   - component: {fileID: 3527856955241038128}
   - component: {fileID: 8102075934241072881}
+  - component: {fileID: 4878227868180857919}
   m_Layer: 8
   m_Name: FRandomChan
   m_TagString: Enemy
@@ -1654,6 +1655,18 @@ MonoBehaviour:
   max_hp: 200
   cooltime: 200
   reward: {fileID: 0}
+--- !u!114 &4878227868180857919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175497477595959292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 488e7a6442daf2c40abad1895ee81344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2233700040349783717
 GameObject:
   m_ObjectHideFlags: 0

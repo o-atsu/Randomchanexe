@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4414391372108896472}
   - component: {fileID: 7408709129366311830}
   - component: {fileID: 8977768127364177894}
+  - component: {fileID: 1473463470812895857}
   m_Layer: 8
   m_Name: MageWarrior
   m_TagString: Enemy
@@ -202,6 +203,18 @@ MonoBehaviour:
   - MageWarrior
   enemy_pos:
   - coords: 0800000002000000
+--- !u!114 &1473463470812895857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281895665743359464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 488e7a6442daf2c40abad1895ee81344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1516863090039389588
 GameObject:
   m_ObjectHideFlags: 0
