@@ -1,0 +1,427 @@
+fileFormatVersion: 2
+guid: cdb18e8b8896e274b92a61945aab5dfd
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      74: 3050756565422358890
+    second: Mesh-Knight-Weapon|B_Head.001|Take 001|BaseLayer
+  - first:
+      74: -5151297002785067413
+    second: Mesh-Knight-Weapon|B_Head|Take 001|BaseLayer
+  - first:
+      74: -6681722999187159332
+    second: Mesh-Knight-Weapon|B_L_Calf.001|Take 001|BaseLayer
+  - first:
+      74: -5936234215980930830
+    second: Mesh-Knight-Weapon|B_L_Calf|Take 001|BaseLayer
+  - first:
+      74: -7784918905185699343
+    second: Mesh-Knight-Weapon|B_L_Clavicle.001|Take 001|BaseLayer
+  - first:
+      74: -6132725142320274640
+    second: Mesh-Knight-Weapon|B_L_Clavicle|Take 001|BaseLayer
+  - first:
+      74: -1181929326200486883
+    second: Mesh-Knight-Weapon|B_L_Finger0.001|Take 001|BaseLayer
+  - first:
+      74: 4808052173446645157
+    second: Mesh-Knight-Weapon|B_L_Finger01.001|Take 001|BaseLayer
+  - first:
+      74: 1089968978174515127
+    second: Mesh-Knight-Weapon|B_L_Finger01|Take 001|BaseLayer
+  - first:
+      74: -2569199275449037479
+    second: Mesh-Knight-Weapon|B_L_Finger02.001|Take 001|BaseLayer
+  - first:
+      74: 5346271417809477865
+    second: Mesh-Knight-Weapon|B_L_Finger02|Take 001|BaseLayer
+  - first:
+      74: 77869642605036331
+    second: Mesh-Knight-Weapon|B_L_Finger0|Take 001|BaseLayer
+  - first:
+      74: -4353877761773335500
+    second: Mesh-Knight-Weapon|B_L_Finger1.001|Take 001|BaseLayer
+  - first:
+      74: 2647220540072685942
+    second: Mesh-Knight-Weapon|B_L_Finger11.001|Take 001|BaseLayer
+  - first:
+      74: -8072923837178772191
+    second: Mesh-Knight-Weapon|B_L_Finger11|Take 001|BaseLayer
+  - first:
+      74: -4980847049682388665
+    second: Mesh-Knight-Weapon|B_L_Finger12.001|Take 001|BaseLayer
+  - first:
+      74: 3578473547967611781
+    second: Mesh-Knight-Weapon|B_L_Finger12|Take 001|BaseLayer
+  - first:
+      74: 7838445701161343629
+    second: Mesh-Knight-Weapon|B_L_Finger1|Take 001|BaseLayer
+  - first:
+      74: 7815340883540136013
+    second: Mesh-Knight-Weapon|B_L_Finger2.001|Take 001|BaseLayer
+  - first:
+      74: -1013631376995861035
+    second: Mesh-Knight-Weapon|B_L_Finger21.001|Take 001|BaseLayer
+  - first:
+      74: -8064513654307838605
+    second: Mesh-Knight-Weapon|B_L_Finger21|Take 001|BaseLayer
+  - first:
+      74: 6316736982568226287
+    second: Mesh-Knight-Weapon|B_L_Finger22.001|Take 001|BaseLayer
+  - first:
+      74: -830928561874311379
+    second: Mesh-Knight-Weapon|B_L_Finger22|Take 001|BaseLayer
+  - first:
+      74: 9138988627770962150
+    second: Mesh-Knight-Weapon|B_L_Finger2|Take 001|BaseLayer
+  - first:
+      74: 3216848720709210333
+    second: Mesh-Knight-Weapon|B_L_Finger3.001|Take 001|BaseLayer
+  - first:
+      74: -85729240062412839
+    second: Mesh-Knight-Weapon|B_L_Finger31.001|Take 001|BaseLayer
+  - first:
+      74: 7895518437802353223
+    second: Mesh-Knight-Weapon|B_L_Finger31|Take 001|BaseLayer
+  - first:
+      74: 172061067957632055
+    second: Mesh-Knight-Weapon|B_L_Finger32.001|Take 001|BaseLayer
+  - first:
+      74: -5936595572335998185
+    second: Mesh-Knight-Weapon|B_L_Finger32|Take 001|BaseLayer
+  - first:
+      74: -8607762502693816297
+    second: Mesh-Knight-Weapon|B_L_Finger3|Take 001|BaseLayer
+  - first:
+      74: -435526768274621892
+    second: Mesh-Knight-Weapon|B_L_Finger4.001|Take 001|BaseLayer
+  - first:
+      74: -2520999404092273446
+    second: Mesh-Knight-Weapon|B_L_Finger41.001|Take 001|BaseLayer
+  - first:
+      74: -8555923552744114444
+    second: Mesh-Knight-Weapon|B_L_Finger41|Take 001|BaseLayer
+  - first:
+      74: -3474031514231158984
+    second: Mesh-Knight-Weapon|B_L_Finger42.001|Take 001|BaseLayer
+  - first:
+      74: -7308300668613881893
+    second: Mesh-Knight-Weapon|B_L_Finger42|Take 001|BaseLayer
+  - first:
+      74: -418037626956057500
+    second: Mesh-Knight-Weapon|B_L_Finger4|Take 001|BaseLayer
+  - first:
+      74: -8523752569790578853
+    second: Mesh-Knight-Weapon|B_L_Foot.001|Take 001|BaseLayer
+  - first:
+      74: 1609905952653905335
+    second: Mesh-Knight-Weapon|B_L_Foot|Take 001|BaseLayer
+  - first:
+      74: -4032582786194292308
+    second: Mesh-Knight-Weapon|B_L_Forearm.001|Take 001|BaseLayer
+  - first:
+      74: -333050131986139044
+    second: Mesh-Knight-Weapon|B_L_Forearm|Take 001|BaseLayer
+  - first:
+      74: -1742717762834896045
+    second: Mesh-Knight-Weapon|B_L_Hand.001|Take 001|BaseLayer
+  - first:
+      74: -5459234050770420119
+    second: Mesh-Knight-Weapon|B_L_Hand|Take 001|BaseLayer
+  - first:
+      74: -4301452307225382648
+    second: Mesh-Knight-Weapon|B_L_Thigh.001|Take 001|BaseLayer
+  - first:
+      74: 4349158808281574469
+    second: Mesh-Knight-Weapon|B_L_Thigh|Take 001|BaseLayer
+  - first:
+      74: 3345618465539381233
+    second: Mesh-Knight-Weapon|B_L_Toe0.001|Take 001|BaseLayer
+  - first:
+      74: 6508537527694731958
+    second: Mesh-Knight-Weapon|B_L_Toe0|Take 001|BaseLayer
+  - first:
+      74: -5792159457306228356
+    second: Mesh-Knight-Weapon|B_L_UpperArm.001|Take 001|BaseLayer
+  - first:
+      74: 7869335175315352320
+    second: Mesh-Knight-Weapon|B_L_UpperArm|Take 001|BaseLayer
+  - first:
+      74: -8827212642818402582
+    second: Mesh-Knight-Weapon|B_Neck.001|Take 001|BaseLayer
+  - first:
+      74: 4891161619611636507
+    second: Mesh-Knight-Weapon|B_Neck|Take 001|BaseLayer
+  - first:
+      74: -2236843823717648130
+    second: Mesh-Knight-Weapon|B_Pelvis.001|Take 001|BaseLayer
+  - first:
+      74: 2030825356148424285
+    second: Mesh-Knight-Weapon|B_Pelvis|Take 001|BaseLayer
+  - first:
+      74: 1807531492542642859
+    second: Mesh-Knight-Weapon|B_R_Calf.001|Take 001|BaseLayer
+  - first:
+      74: 481955836927033190
+    second: Mesh-Knight-Weapon|B_R_Calf|Take 001|BaseLayer
+  - first:
+      74: 3075264028307508848
+    second: Mesh-Knight-Weapon|B_R_Clavicle.001|Take 001|BaseLayer
+  - first:
+      74: 546320151764400755
+    second: Mesh-Knight-Weapon|B_R_Clavicle|Take 001|BaseLayer
+  - first:
+      74: -8928843894745122654
+    second: Mesh-Knight-Weapon|B_R_Finger0.001|Take 001|BaseLayer
+  - first:
+      74: 837240898078159118
+    second: Mesh-Knight-Weapon|B_R_Finger01.001|Take 001|BaseLayer
+  - first:
+      74: -1473075106291011152
+    second: Mesh-Knight-Weapon|B_R_Finger01|Take 001|BaseLayer
+  - first:
+      74: -3523286290884796293
+    second: Mesh-Knight-Weapon|B_R_Finger02.001|Take 001|BaseLayer
+  - first:
+      74: 864075007791872172
+    second: Mesh-Knight-Weapon|B_R_Finger02|Take 001|BaseLayer
+  - first:
+      74: -6514086478392877505
+    second: Mesh-Knight-Weapon|B_R_Finger0|Take 001|BaseLayer
+  - first:
+      74: -8673625102648678750
+    second: Mesh-Knight-Weapon|B_R_Finger1.001|Take 001|BaseLayer
+  - first:
+      74: -8275972166307688944
+    second: Mesh-Knight-Weapon|B_R_Finger11.001|Take 001|BaseLayer
+  - first:
+      74: 1438195204970199179
+    second: Mesh-Knight-Weapon|B_R_Finger11|Take 001|BaseLayer
+  - first:
+      74: -7651923578422235465
+    second: Mesh-Knight-Weapon|B_R_Finger12.001|Take 001|BaseLayer
+  - first:
+      74: -4783400288977171988
+    second: Mesh-Knight-Weapon|B_R_Finger12|Take 001|BaseLayer
+  - first:
+      74: 4329849991444840298
+    second: Mesh-Knight-Weapon|B_R_Finger1|Take 001|BaseLayer
+  - first:
+      74: -406008919808556652
+    second: Mesh-Knight-Weapon|B_R_Finger2.001|Take 001|BaseLayer
+  - first:
+      74: -2356956423362377821
+    second: Mesh-Knight-Weapon|B_R_Finger21.001|Take 001|BaseLayer
+  - first:
+      74: -2627709965445800240
+    second: Mesh-Knight-Weapon|B_R_Finger21|Take 001|BaseLayer
+  - first:
+      74: 1807959536852760856
+    second: Mesh-Knight-Weapon|B_R_Finger22.001|Take 001|BaseLayer
+  - first:
+      74: -5051178518358961321
+    second: Mesh-Knight-Weapon|B_R_Finger22|Take 001|BaseLayer
+  - first:
+      74: 7078917219150127253
+    second: Mesh-Knight-Weapon|B_R_Finger2|Take 001|BaseLayer
+  - first:
+      74: 1874108241237468900
+    second: Mesh-Knight-Weapon|B_R_Finger3.001|Take 001|BaseLayer
+  - first:
+      74: 1259339319176225750
+    second: Mesh-Knight-Weapon|B_R_Finger31.001|Take 001|BaseLayer
+  - first:
+      74: -179400333216545650
+    second: Mesh-Knight-Weapon|B_R_Finger31|Take 001|BaseLayer
+  - first:
+      74: -631650292609706809
+    second: Mesh-Knight-Weapon|B_R_Finger32.001|Take 001|BaseLayer
+  - first:
+      74: 4935321805560600452
+    second: Mesh-Knight-Weapon|B_R_Finger32|Take 001|BaseLayer
+  - first:
+      74: -6936605085856337395
+    second: Mesh-Knight-Weapon|B_R_Finger3|Take 001|BaseLayer
+  - first:
+      74: -1282663916442791491
+    second: Mesh-Knight-Weapon|B_R_Finger4.001|Take 001|BaseLayer
+  - first:
+      74: -1665736514395759865
+    second: Mesh-Knight-Weapon|B_R_Finger41.001|Take 001|BaseLayer
+  - first:
+      74: 5115955653792044620
+    second: Mesh-Knight-Weapon|B_R_Finger41|Take 001|BaseLayer
+  - first:
+      74: 9198428267924315100
+    second: Mesh-Knight-Weapon|B_R_Finger42.001|Take 001|BaseLayer
+  - first:
+      74: -1263533380796701279
+    second: Mesh-Knight-Weapon|B_R_Finger42|Take 001|BaseLayer
+  - first:
+      74: -6876245321062347030
+    second: Mesh-Knight-Weapon|B_R_Finger4|Take 001|BaseLayer
+  - first:
+      74: 8737941722511988400
+    second: Mesh-Knight-Weapon|B_R_Foot.001|Take 001|BaseLayer
+  - first:
+      74: 7524176828200814012
+    second: Mesh-Knight-Weapon|B_R_Foot|Take 001|BaseLayer
+  - first:
+      74: 5021404368725400850
+    second: Mesh-Knight-Weapon|B_R_Forearm.001|Take 001|BaseLayer
+  - first:
+      74: 2359383605978837395
+    second: Mesh-Knight-Weapon|B_R_Forearm|Take 001|BaseLayer
+  - first:
+      74: 6177960556894622502
+    second: Mesh-Knight-Weapon|B_R_Hand.001|Take 001|BaseLayer
+  - first:
+      74: -5145977910939447713
+    second: Mesh-Knight-Weapon|B_R_Hand|Take 001|BaseLayer
+  - first:
+      74: 8670536738596612224
+    second: Mesh-Knight-Weapon|B_R_Thigh.001|Take 001|BaseLayer
+  - first:
+      74: 3407792482713429404
+    second: Mesh-Knight-Weapon|B_R_Thigh|Take 001|BaseLayer
+  - first:
+      74: 226918702056369033
+    second: Mesh-Knight-Weapon|B_R_Toe0.001|Take 001|BaseLayer
+  - first:
+      74: -5392972467347111973
+    second: Mesh-Knight-Weapon|B_R_Toe0|Take 001|BaseLayer
+  - first:
+      74: -4649407242728049974
+    second: Mesh-Knight-Weapon|B_R_UpperArm.001|Take 001|BaseLayer
+  - first:
+      74: -382433623886708965
+    second: Mesh-Knight-Weapon|B_R_UpperArm|Take 001|BaseLayer
+  - first:
+      74: 3329607059187166373
+    second: Mesh-Knight-Weapon|B_Spine.001|Take 001|BaseLayer
+  - first:
+      74: -573027502919615400
+    second: Mesh-Knight-Weapon|B_Spine1.001|Take 001|BaseLayer
+  - first:
+      74: -8668256888154229946
+    second: Mesh-Knight-Weapon|B_Spine1|Take 001|BaseLayer
+  - first:
+      74: 2042816225437399471
+    second: Mesh-Knight-Weapon|B_Spine|Take 001|BaseLayer
+  - first:
+      74: -872461129568118145
+    second: Mesh-Knight-Weapon|Mesh-Knight-Shield|Take 001|BaseLayer
+  - first:
+      74: 3948409567665900886
+    second: Mesh-Knight-Weapon|Mesh-Knight-Weapon|Take 001|BaseLayer
+  - first:
+      74: -4120071206635535743
+    second: Mesh-Knight-Weapon|Mesh-TwoHanded-Weapon|Take 001|BaseLayer
+  - first:
+      74: -3733393440498683090
+    second: Mesh-Knight-Weapon|Motion|Take 001|BaseLayer
+  - first:
+      74: 8670969033493017576
+    second: Mesh-Knight-Weapon|Motion|Take 001|BaseLayer.001
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

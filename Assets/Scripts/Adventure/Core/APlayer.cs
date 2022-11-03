@@ -51,6 +51,7 @@ namespace Adventure{
 
             // Debug.Log("Changed: " + after + " in " + s_index);
             Debug.Log("Attacks: " + select_attacks[0] + ", " + select_attacks[1] + ", " + select_attacks[2]);
+            Debug.Log("Attacks: " + AdventureToBattle.select_attacks[0].GetName() + ", " + AdventureToBattle.select_attacks[1].GetName() + ", " + AdventureToBattle.select_attacks[2].GetName());
             return true;
         }
 

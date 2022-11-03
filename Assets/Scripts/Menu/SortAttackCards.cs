@@ -20,7 +20,7 @@ public class SortAttackCards : MonoBehaviour{
 
     private APlayer aplayer;
 
-    async void Awake(){
+    async void OnEnable(){
         aplayer = GameObject.FindGameObjectWithTag("Player").GetComponent<APlayer>();
 
         Attack[] g_atks = aplayer.GetGetAttacks();
@@ -29,7 +29,7 @@ public class SortAttackCards : MonoBehaviour{
             int[] s_atks = aplayer.GetSelectAttacks();
             float columns = (float)s_atks.Length;
             for(int i = 0;i < s_atks.Length;i++){
-                GameObject obj = await GenerateCard(g_atks[s_atks[i]], (i + 1).ToString(), s_atks[i] + 1, true);
+                GameObject obj = await GenerateCard(g_atks[s_atks[i] - 1], (i + 1).ToString(), s_atks[i], true);
 
                 Vector2 pos = new Vector2((i % columns) * (duration.x % width) - Mathf.Floor(columns / 2.0f) * duration.x, -Mathf.Floor((float)i / columns) * duration.y);// widthを超えるカードは折り返し
                 obj.GetComponent<RectTransform>().anchoredPosition = pos;

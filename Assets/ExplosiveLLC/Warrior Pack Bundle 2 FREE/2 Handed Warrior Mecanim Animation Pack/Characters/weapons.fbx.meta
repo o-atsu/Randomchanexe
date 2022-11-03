@@ -1,0 +1,265 @@
+fileFormatVersion: 2
+guid: 7d58e960f8a4266489ee175f13c35ecd
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      74: 4720765531938154300
+    second: Mesh-TwoHanded-Weapon|B_Head|Take 001|BaseLayer
+  - first:
+      74: 3883013527411490857
+    second: Mesh-TwoHanded-Weapon|B_L_Calf|Take 001|BaseLayer
+  - first:
+      74: 5884850932181092664
+    second: Mesh-TwoHanded-Weapon|B_L_Clavicle|Take 001|BaseLayer
+  - first:
+      74: -4722198958612899677
+    second: Mesh-TwoHanded-Weapon|B_L_Finger01|Take 001|BaseLayer
+  - first:
+      74: 1769743716523189629
+    second: Mesh-TwoHanded-Weapon|B_L_Finger02|Take 001|BaseLayer
+  - first:
+      74: 5181044319171469919
+    second: Mesh-TwoHanded-Weapon|B_L_Finger0|Take 001|BaseLayer
+  - first:
+      74: 6397517599030142607
+    second: Mesh-TwoHanded-Weapon|B_L_Finger11|Take 001|BaseLayer
+  - first:
+      74: -781463601019785076
+    second: Mesh-TwoHanded-Weapon|B_L_Finger12|Take 001|BaseLayer
+  - first:
+      74: 1336970315283536507
+    second: Mesh-TwoHanded-Weapon|B_L_Finger1|Take 001|BaseLayer
+  - first:
+      74: 3370950750371716148
+    second: Mesh-TwoHanded-Weapon|B_L_Finger21|Take 001|BaseLayer
+  - first:
+      74: 7461388952266042027
+    second: Mesh-TwoHanded-Weapon|B_L_Finger22|Take 001|BaseLayer
+  - first:
+      74: 4510646350669440116
+    second: Mesh-TwoHanded-Weapon|B_L_Finger2|Take 001|BaseLayer
+  - first:
+      74: -6362147835174928114
+    second: Mesh-TwoHanded-Weapon|B_L_Finger31|Take 001|BaseLayer
+  - first:
+      74: 1543918122575145001
+    second: Mesh-TwoHanded-Weapon|B_L_Finger32|Take 001|BaseLayer
+  - first:
+      74: 4403304136408038830
+    second: Mesh-TwoHanded-Weapon|B_L_Finger3|Take 001|BaseLayer
+  - first:
+      74: 7301438114299950863
+    second: Mesh-TwoHanded-Weapon|B_L_Finger41|Take 001|BaseLayer
+  - first:
+      74: -612684257940788301
+    second: Mesh-TwoHanded-Weapon|B_L_Finger42|Take 001|BaseLayer
+  - first:
+      74: 2517897426632257580
+    second: Mesh-TwoHanded-Weapon|B_L_Finger4|Take 001|BaseLayer
+  - first:
+      74: -5208482330538831748
+    second: Mesh-TwoHanded-Weapon|B_L_Foot|Take 001|BaseLayer
+  - first:
+      74: -4324148441402067457
+    second: Mesh-TwoHanded-Weapon|B_L_Forearm|Take 001|BaseLayer
+  - first:
+      74: 5576714416431759129
+    second: Mesh-TwoHanded-Weapon|B_L_Hand|Take 001|BaseLayer
+  - first:
+      74: -2361467277448263372
+    second: Mesh-TwoHanded-Weapon|B_L_Thigh|Take 001|BaseLayer
+  - first:
+      74: 4915950341225922080
+    second: Mesh-TwoHanded-Weapon|B_L_Toe0|Take 001|BaseLayer
+  - first:
+      74: -366560440490863374
+    second: Mesh-TwoHanded-Weapon|B_L_UpperArm|Take 001|BaseLayer
+  - first:
+      74: 3135139395613426701
+    second: Mesh-TwoHanded-Weapon|B_Neck|Take 001|BaseLayer
+  - first:
+      74: -1015508304793488664
+    second: Mesh-TwoHanded-Weapon|B_Pelvis|Take 001|BaseLayer
+  - first:
+      74: 5168905196435976694
+    second: Mesh-TwoHanded-Weapon|B_R_Calf|Take 001|BaseLayer
+  - first:
+      74: 3455387440101845245
+    second: Mesh-TwoHanded-Weapon|B_R_Clavicle|Take 001|BaseLayer
+  - first:
+      74: -703608685457620740
+    second: Mesh-TwoHanded-Weapon|B_R_Finger01|Take 001|BaseLayer
+  - first:
+      74: 7012654826165360094
+    second: Mesh-TwoHanded-Weapon|B_R_Finger02|Take 001|BaseLayer
+  - first:
+      74: 1951188178924008859
+    second: Mesh-TwoHanded-Weapon|B_R_Finger0|Take 001|BaseLayer
+  - first:
+      74: -6546770821682358178
+    second: Mesh-TwoHanded-Weapon|B_R_Finger11|Take 001|BaseLayer
+  - first:
+      74: 3064832262872459889
+    second: Mesh-TwoHanded-Weapon|B_R_Finger12|Take 001|BaseLayer
+  - first:
+      74: 3822989033910342492
+    second: Mesh-TwoHanded-Weapon|B_R_Finger1|Take 001|BaseLayer
+  - first:
+      74: -3767477885320519157
+    second: Mesh-TwoHanded-Weapon|B_R_Finger21|Take 001|BaseLayer
+  - first:
+      74: -1580614147319238279
+    second: Mesh-TwoHanded-Weapon|B_R_Finger22|Take 001|BaseLayer
+  - first:
+      74: -6651148325894455220
+    second: Mesh-TwoHanded-Weapon|B_R_Finger2|Take 001|BaseLayer
+  - first:
+      74: 1408801036656005796
+    second: Mesh-TwoHanded-Weapon|B_R_Finger31|Take 001|BaseLayer
+  - first:
+      74: 2740094491838625590
+    second: Mesh-TwoHanded-Weapon|B_R_Finger32|Take 001|BaseLayer
+  - first:
+      74: -1825479161792360212
+    second: Mesh-TwoHanded-Weapon|B_R_Finger3|Take 001|BaseLayer
+  - first:
+      74: -1707580321608253042
+    second: Mesh-TwoHanded-Weapon|B_R_Finger41|Take 001|BaseLayer
+  - first:
+      74: -2387471380651376856
+    second: Mesh-TwoHanded-Weapon|B_R_Finger42|Take 001|BaseLayer
+  - first:
+      74: -1506690032884781615
+    second: Mesh-TwoHanded-Weapon|B_R_Finger4|Take 001|BaseLayer
+  - first:
+      74: -7374707173899883089
+    second: Mesh-TwoHanded-Weapon|B_R_Foot|Take 001|BaseLayer
+  - first:
+      74: 4536606549974181451
+    second: Mesh-TwoHanded-Weapon|B_R_Forearm|Take 001|BaseLayer
+  - first:
+      74: 3484793449802855173
+    second: Mesh-TwoHanded-Weapon|B_R_Hand|Take 001|BaseLayer
+  - first:
+      74: 1291524109352035365
+    second: Mesh-TwoHanded-Weapon|B_R_Thigh|Take 001|BaseLayer
+  - first:
+      74: 2831141742817191108
+    second: Mesh-TwoHanded-Weapon|B_R_Toe0|Take 001|BaseLayer
+  - first:
+      74: 3117490521656982382
+    second: Mesh-TwoHanded-Weapon|B_R_UpperArm|Take 001|BaseLayer
+  - first:
+      74: -8391232507313186085
+    second: Mesh-TwoHanded-Weapon|B_Spine1|Take 001|BaseLayer
+  - first:
+      74: 3532921327487864818
+    second: Mesh-TwoHanded-Weapon|B_Spine|Take 001|BaseLayer
+  - first:
+      74: 6791284102038267034
+    second: Mesh-TwoHanded-Weapon|Mesh-TwoHanded-Weapon|Take 001|BaseLayer
+  - first:
+      74: -2440204804630385279
+    second: Mesh-TwoHanded-Weapon|Motion|Take 001|BaseLayer
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -27,7 +27,7 @@ namespace Battle{// 末端クラスでのみAwake使いたいね
         }
 
 
-        private async Task AttackEvent(int atk_id){
+        public async Task AttackEvent(int atk_id){
             if(!IsIdle){ return; }
             // Debug.Log(attacks.Length);
 

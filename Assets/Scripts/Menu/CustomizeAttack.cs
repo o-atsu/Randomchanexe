@@ -16,7 +16,11 @@ public class CustomizeAttack : MonoBehaviour{
     private int s_index;
     private int after;
 
-    void Awake(){
+    void Start(){// call OnEnable at first
+        gameObject.SetActive(false);
+    }
+
+    void OnEnable(){
         set_cards = new List<GameObject>();
         set_ids = new List<int>();
         get_cards = new List<GameObject>();
@@ -34,6 +38,11 @@ public class CustomizeAttack : MonoBehaviour{
         }
     }
 
+    void OnDisable(){
+        current = null;
+        s_index = after = -1;
+    }
+
     public void SubscribeCard(GameObject card, bool isset){
         if(isset){
             set_cards.Add(card);
@@ -46,7 +55,7 @@ public class CustomizeAttack : MonoBehaviour{
         }
     }
 
-    public void SelectCard(int card_id, bool isset){
+    public async void SelectCard(int card_id, bool isset){
         AttackCard next;
         if(isset){
             next = set_cards[IdToIndex(card_id, true)].GetComponent<AttackCard>();
@@ -68,7 +77,7 @@ public class CustomizeAttack : MonoBehaviour{
             AttackCard b = set_cards[s_index].GetComponent<AttackCard>();
             string a = get_cards[IdToIndex(after, false)].GetComponent<AttackCard>().GetText();
             aplayer.ChangeAttacks(s_index, after);
-            b.OnChange(a);
+            await b.OnChange(a);
 
             next.OnDeselect();
             current = null;

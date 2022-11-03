@@ -7,8 +7,9 @@ using UnityEngine.EventSystems;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using TMPro;
+using Battle;
 
-public class AttackCard : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler{
+public class AttackButton : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler{
 
     public static Dictionary<string, string> icon_file = new Dictionary<string, string>(){
         {"大剣","Sword"},
@@ -18,16 +19,15 @@ public class AttackCard : MonoBehaviour, IPointerDownHandler, IPointerEnterHandl
         {"ファイアーブレード","Fireblade"}
     };
 
-    private bool is_set;
-    private int icon_id;
+    private int atk_index;
     private string txt;
-    private CustomizeAttack custom;
     private Animator anim;
+    private FPlayer fplayer;
 
 
-    public async void init(string atk, string name, int i, bool isset){
+    public async void init(string atk, string name, int i){
         anim = gameObject.GetComponent<Animator>();
-        custom = transform.parent.parent.gameObject.GetComponent<CustomizeAttack>();
+        fplayer = GameObject.FindGameObjectWithTag("Player").GetComponent<FPlayer>();
 
         Image img = transform.GetChild(1).gameObject.GetComponent<Image>();
         TextMeshProUGUI tmp = transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>();
@@ -38,24 +38,19 @@ public class AttackCard : MonoBehaviour, IPointerDownHandler, IPointerEnterHandl
         img.sprite = icon;
         tmp.text = name;
         txt = name;
-        icon_id = i;
-        is_set = isset;
+        atk_index = i;
 
-        custom.SubscribeCard(this.gameObject, isset);
     }
-
-    public int GetId(){ return icon_id; }
 
     public string GetText(){ return txt; }
 
     void OnDisable(){
         anim.SetBool("Highlight", false);
-        anim.SetBool("Select", false);
     }
 
-    public void OnPointerDown(PointerEventData eventData){
+    public async void OnPointerDown(PointerEventData eventData){
         anim.SetBool("Highlight", false);
-        custom.SelectCard(icon_id, is_set);
+        await fplayer.AttackEvent(atk_index);
     }
 
     public void OnPointerEnter(PointerEventData eventData){
@@ -66,18 +61,4 @@ public class AttackCard : MonoBehaviour, IPointerDownHandler, IPointerEnterHandl
         anim.SetBool("Highlight", false);
     }
 
-    public void OnSelect(){
-        anim.SetBool("Select", true);
-    }
-    public void OnDeselect(){
-        anim.SetBool("Select", false);
-    }
-
-    public async Task OnChange(string atk_name){
-        Image img = transform.GetChild(1).gameObject.GetComponent<Image>();
-        AsyncOperationHandle<Sprite> handle = Addressables.LoadAssetAsync<Sprite>(IconData.GetIconPath(icon_file[atk_name]));
-        Sprite icon = await handle.Task;
-
-        img.sprite = icon;
-    }
 }
