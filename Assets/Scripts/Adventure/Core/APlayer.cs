@@ -17,7 +17,8 @@ namespace Adventure{
         private int[] select_attacks = new int[]{1, 1, 1}; 
 
 
-        public void change_attacks(int before, int after){
+        public bool ChangeAttacks(int s_index, int after){
+            /*
             if(before != after){// 同じ値の引数でないなら入れ替え
                 int b_pos = -1;
                 int a_pos = -1;
@@ -27,13 +28,18 @@ namespace Adventure{
                 }
                 if(b_pos == -1){
                     Debug.Log("invalid argument in chenge_attacks");
+                    return false;
                 }else if(a_pos == -1){
-                    select_attacks[b_pos] = after;
+                    Debug.Log("invalid argument in chenge_attacks");
+                    return false;
                 }else{
                     select_attacks[b_pos] = after;
                     select_attacks[a_pos] = before;
                 }
+                    
             }
+            */
+            if(s_index != -1){ select_attacks[s_index] = after; }
 
 
             Attack[] atks = new Attack[num_attacks];
@@ -42,6 +48,10 @@ namespace Adventure{
                 atks[i] = get_attacks[select_attacks[i] - 1];
             }
             AdventureToBattle.select_attacks = atks;
+
+            // Debug.Log("Changed: " + after + " in " + s_index);
+            Debug.Log("Attacks: " + select_attacks[0] + ", " + select_attacks[1] + ", " + select_attacks[2]);
+            return true;
         }
 
 
@@ -78,7 +88,7 @@ namespace Adventure{
                 if(new_atk[i]){ get_attacks[get_attacks.Length - i - 1] = rewarded[i]; }
             }
 
-            change_attacks(0, 0);
+            bool saved = ChangeAttacks(-1, -1);
             BattleToAdventure.RewardAttacks = new List<Attack>();
         }
 

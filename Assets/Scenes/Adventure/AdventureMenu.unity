@@ -1353,6 +1353,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 756946252}
+  - component: {fileID: 756946253}
   m_Layer: 5
   m_Name: CustomizePanel
   m_TagString: Untagged
@@ -1385,6 +1386,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &756946253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756946251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7988f486e2f1c243ab0830f783e4edd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &819370778
 GameObject:
   m_ObjectHideFlags: 0
@@ -2056,8 +2069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 231913c0297c9f845ba06125b4d69337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack_card: {fileID: 6042017963031871064, guid: 545b157d099ac1646aff57c6bff59440,
-    type: 3}
+  prefab_name: Assets/Prefabs/UI/AttackCard.prefab
   set_attack: 1
   width: 800
   duration: {x: 210, y: 210}
@@ -2110,8 +2122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 231913c0297c9f845ba06125b4d69337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack_card: {fileID: 6042017963031871064, guid: 545b157d099ac1646aff57c6bff59440,
-    type: 3}
+  prefab_name: Assets/Prefabs/UI/AttackCard.prefab
   set_attack: 0
   width: 710
   duration: {x: 180, y: 210}
@@ -2924,7 +2935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu_items:
-  - {fileID: 1861090896}
+  - {fileID: 1832823706}
   - {fileID: 1480501218}
   - {fileID: 1979466158}
   - {fileID: 1552221301}
@@ -2934,7 +2945,7 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 8337846141337759393}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1861090896
+--- !u!114 &1832823706
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2943,7 +2954,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 857036243}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7988f486e2f1c243ab0830f783e4edd, type: 3}
+  m_Script: {fileID: 11500000, guid: f3aeabba03a8e334f9ee45be7d9e48fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   text_id: 1

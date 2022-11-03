@@ -6,7 +6,7 @@ using UnityEngine.Assertions;
 
 public class MenuText : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler{
     [SerializeField]
-    private int text_id = 0;
+    private int text_id = 0;// 禁止：65535
 
     private Animator anim;
     private MenuController menu_controller;
@@ -19,18 +19,6 @@ public class MenuText : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
         Assert.IsFalse(menu_controller == null, "Cannot Find Menu Controller!");
     }
 
-
-    public void Clicked(int i){
-        if(i == text_id){
-            anim.SetBool("Clicked", true);
-            OnSelect();
-            return;
-        }else{
-            anim.SetBool("Clicked", false);
-            OnDeselect();
-            return;
-        }
-    }
 
     public void OnPointerDown(PointerEventData eventData){
         // Debug.Log("Down:Menu");
@@ -48,10 +36,14 @@ public class MenuText : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
         anim.SetBool("Highlight", false);
     }
 
+    public int GetId(){ return text_id; }
 
-    protected virtual void OnSelect(){
-        Debug.Log("Selected: " + text_id);
+
+    public virtual void OnSelect(){
+        // Debug.Log("Selected: " + text_id);
+        anim.SetBool("Clicked", true);
     }
-    protected virtual void OnDeselect(){
+    public virtual void OnDeselect(){
+        anim.SetBool("Clicked", false);
     }
 }

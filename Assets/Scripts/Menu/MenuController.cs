@@ -7,9 +7,24 @@ public class MenuController : MonoBehaviour{
     [SerializeField]
     private MenuText[] menu_items;
 
-    public void SelectText(int text_id){
-        foreach(MenuText mtxt in menu_items){
-            mtxt.Clicked(text_id);
+    private int[] text_ids;
+    private int current;
+
+    void Awake(){
+        current = 65535;
+        text_ids = new int[menu_items.Length];
+        for(int i = 0;i < menu_items.Length;i++){
+            text_ids[i] = menu_items[i].GetId();
         }
+    }
+
+    private int IdToIndex(int i){ return System.Array.IndexOf(text_ids, i); }
+
+    public void SelectText(int text_id){
+        if(current != 65535){
+            menu_items[IdToIndex(current)].OnDeselect();
+        }
+        menu_items[IdToIndex(text_id)].OnSelect();
+        current = text_id;
     }
 }

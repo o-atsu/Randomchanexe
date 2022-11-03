@@ -8,11 +8,13 @@ public class ShowPanel : MenuText{
     private GameObject Panel;
 
 
-    protected override void OnSelect(){
+    public override void OnSelect(){
+        base.OnSelect();
         Panel.SetActive(true);
     }
 
-    protected override void OnDeselect(){
+    public override void OnDeselect(){
+        base.OnDeselect();
         Panel.SetActive(false);
     }
 }

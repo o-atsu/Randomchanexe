@@ -10,7 +10,7 @@ using Adventure;
 
 public class SortAttackCards : MonoBehaviour{
     [SerializeField]
-    private GameObject attack_card;
+    private string prefab_name = "AttackCard";
     [SerializeField]
     private bool set_attack = true;
     [SerializeField]
@@ -20,7 +20,7 @@ public class SortAttackCards : MonoBehaviour{
 
     private APlayer aplayer;
 
-    void Awake(){
+    async void Awake(){
         aplayer = GameObject.FindGameObjectWithTag("Player").GetComponent<APlayer>();
 
         Attack[] g_atks = aplayer.GetGetAttacks();
@@ -29,7 +29,7 @@ public class SortAttackCards : MonoBehaviour{
             int[] s_atks = aplayer.GetSelectAttacks();
             float columns = (float)s_atks.Length;
             for(int i = 0;i < s_atks.Length;i++){
-                GameObject obj = GenerateCard(g_atks[s_atks[i]], (i + 1).ToString(), s_atks[i]);
+                GameObject obj = await GenerateCard(g_atks[s_atks[i]], (i + 1).ToString(), s_atks[i] + 1, true);
 
                 Vector2 pos = new Vector2((i % columns) * (duration.x % width) - Mathf.Floor(columns / 2.0f) * duration.x, -Mathf.Floor((float)i / columns) * duration.y);// widthを超えるカードは折り返し
                 obj.GetComponent<RectTransform>().anchoredPosition = pos;
@@ -37,7 +37,7 @@ public class SortAttackCards : MonoBehaviour{
         }else{
             float columns = Mathf.Min((float)g_atks.Length, Mathf.Floor(width / duration.x));
             for(int i = 0;i < g_atks.Length;i++){
-                GameObject obj = GenerateCard(g_atks[i], g_atks[i].GetName(), i + 1);
+                GameObject obj = await GenerateCard(g_atks[i], g_atks[i].GetName(), i + 1, false);
 
                 Vector2 pos = new Vector2((i % columns) * (duration.x % width) - (float)(columns / 2) * duration.x, -Mathf.Floor((float)i / columns) * duration.y);// widthを超えるカードは折り返し
                 obj.GetComponent<RectTransform>().anchoredPosition = pos;
@@ -46,13 +46,14 @@ public class SortAttackCards : MonoBehaviour{
     }
 
 
-    private GameObject GenerateCard(Attack atk, string name, int i){
+    private async Task<GameObject> GenerateCard(Attack atk, string name, int i, bool isset){
 
-        GameObject card = Instantiate(attack_card, this.transform);
+        AsyncOperationHandle<GameObject> handle = Addressables.InstantiateAsync(prefab_name, transform);
+        GameObject card = await handle.Task;
                 
         AttackCard ac = card.GetComponent<AttackCard>();
         Assert.IsFalse(ac == null, "AttackCard Is Not Attached in " + atk.GetName());
-        ac.init(atk.GetName(), name, i);
+        ac.init(atk.GetName(), name, i, isset);
 
         return card;
     }
