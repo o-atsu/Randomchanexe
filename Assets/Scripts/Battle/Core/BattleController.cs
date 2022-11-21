@@ -7,6 +7,7 @@ using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
 
 
 
@@ -16,9 +17,17 @@ namespace Battle{
         public static int stage_width = 10;
         public static int stage_height = 5;
 
+        [SerializeField]
+        private GameObject win_panel;
+        [SerializeField]
+        private GameObject lose_panel;
+        [SerializeField]
+        private int end_delay = 2000;
+
         private Dictionary<int, GameObject> fighters;
         private Dictionary<int, bool> islive;
         private int[,] field_info;// Down-Left is {0, 0}
+        private FighterData ftr_data;
 
         private string adv_scene = "Playground";
 
@@ -29,6 +38,7 @@ namespace Battle{
             List<string> enemy_names = AdventureToBattle.EnemyNames;
             List<int[]> player_pos = AdventureToBattle.PlayerPositions;
             List<int[]> enemy_pos = AdventureToBattle.EnemyPositions;
+            ftr_data = GameObject.FindGameObjectWithTag("Fighter Data").GetComponent<FighterData>();
 
             fighters = new Dictionary<int, GameObject>();
             islive = new Dictionary<int, bool>();
@@ -72,7 +82,7 @@ namespace Battle{
         }
 
         private async Task GenerateFighter(string name, bool is_player, int[] field_pos){// プレハブを指定位置に生成
-            string path = FighterData.GetFighterPath(name);
+            string path = ftr_data.GetFighterPath(name);
             Assert.IsFalse(path == null, "Cannot Find Fighter: " + name);
             AsyncOperationHandle<GameObject> handle = Addressables.InstantiateAsync(path);
 
@@ -91,6 +101,23 @@ namespace Battle{
             islive.Add(obj_id, true);
         }
 
+        private async Task OnWin(){
+            win_panel.SetActive(true);
+            await Task.Delay(end_delay);
+        }
+
+        private async Task OnLose(){
+            lose_panel.SetActive(true);
+            await Task.Delay(end_delay);
+        }
+
+        private async Task SceneChange(bool player_win){
+            BattleToAdventure.SavedInfoName = AdventureToBattle.SavedInfoName;
+
+            AsyncOperationHandle<SceneInstance> handle = Addressables.LoadSceneAsync(adv_scene, LoadSceneMode.Single);
+            await handle.Task;
+        }
+
 
         private bool CanMove(int[] pos, bool is_player){// 移動先が動ける範囲かどうか, 別のFighterがいるか
             if(is_player){
@@ -98,12 +125,6 @@ namespace Battle{
             }else{
                 return (stage_width / 2 <= pos[0] && pos[0] < stage_width) && (0 <= pos[1] && pos[1] < stage_height) && (field_info[pos[0], pos[1]] == 0);
             }
-        }
-
-
-        private void SceneChange(bool player_win){
-            BattleToAdventure.SavedInfoName = AdventureToBattle.SavedInfoName;
-            SceneManager.LoadScene(adv_scene, LoadSceneMode.Single);
         }
 
         public int Move(int ID, int[] pos){// Moveできない：0, Move完了：1
@@ -134,9 +155,9 @@ namespace Battle{
                 int hit_id = field_info[atk_pos[0], atk_pos[1]];
                 if(hit_id == 0 || IsPlayer(hit_id) == IsPlayer(ID)){ continue; }
 
-                int defeated = fighters[hit_id].GetComponent<Fighter>().Hit(atk.GetDamage());
+                int defeated = fighters[hit_id].GetComponent<Fighter>().HitAttack(atk.GetDamage());
                 if(defeated == 1){
-                    field_info[atk_pos[0], atk_pos[1]] = 0;// ヒットと同時に動くとダメ?
+                    field_info[atk_pos[0], atk_pos[1]] = 0;
                 }
 
                 hit = 1;
@@ -144,7 +165,7 @@ namespace Battle{
             return hit;
         }
 
-        public int Defeated(int ID){
+        public async Task Defeated(int ID){
             // Debug.Log("Defeated: " + ID);
 
             int[] pos = GetPosition(ID);
@@ -162,14 +183,12 @@ namespace Battle{
             }
 
             if(num_enemies == 0){
-                Debug.Log("WIN!");
-                SceneChange(true);
-            }else if(num_enemies == 0){
-                Debug.Log("LOSE...");
-                SceneChange(false);
+                await OnWin();
+                await SceneChange(true);
+            }else if(num_players == 0){
+                await OnLose();
+                await SceneChange(false);
             }
-
-            return 1;
         }
 
         public int[] GetPosition(int ID){// IDを渡すとそのオブジェクトのポジションを返す

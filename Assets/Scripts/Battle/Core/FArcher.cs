@@ -14,6 +14,7 @@ namespace Battle{
             await Task.Delay(offset);
             while(gameObject.activeSelf){
 
+                await CheckScene();
                 await Task.Delay(cooltime);
                 await AttackEvent(1);
 

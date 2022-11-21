@@ -10,7 +10,7 @@
             "rotation_y": "0",
             "rotation_z": "0",
             "rotation_w": "1",
-            "additional": "SELECT,1,4,3,GET,大剣,パンチ,ビーム,Xビット,ファイアーブレード"
+            "additional": "SELECT,1,5,3,GET,大剣,パンチ,ビーム,Xビット,ファイアーブレード"
         },
            {
             "name": "for_test",

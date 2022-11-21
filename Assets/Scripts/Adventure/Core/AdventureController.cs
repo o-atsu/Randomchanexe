@@ -7,23 +7,29 @@ using UnityEngine.Assertions;
 using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
 
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
 // シーン移行時にJSON形式のAdventureCharacterのsaved_infoを保存
-// シーン開始時にJSON形式でAdventureCharacterのsaved_infoを書き出し
+// シーン開始時にJSON形式でAdventureCharacterのsaved_infoを読み込み
 namespace Adventure{
     public class AdventureController : MonoBehaviour{
         
+        private AttackData atk_data;
+        private AdventureData adv_data;
         
-        // [SerializeField]
-        // private int repop_time = 10000;// milliseconds
         [SerializeField]
         private bool SaveSceneInAwake = false;
 
+        
+#if UNITY_EDITOR
         private string InfoPath = "Assets/AdventurerInfo/";
+#else
+        private string InfoPath = Application.persistentDataPath + @"/";
+#endif
         private List<GameObject> objects;
 
 
@@ -32,15 +38,17 @@ namespace Adventure{
         private async void SaveSceneNow(){// FOR DEBUG
             objects = new List<GameObject>();
             GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-            Debug.Log(players);
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
             foreach(GameObject p in players){ objects.Add(p); }
             foreach(GameObject e in enemies){ objects.Add(e); }
             await SaveInfo("saved");
+            Debug.Log("Saved in " + InfoPath + "saved.json");
         }
 
 
         async void Awake(){
+            atk_data = GameObject.FindGameObjectWithTag("Attack Data").GetComponent<AttackData>();
+            adv_data = GameObject.FindGameObjectWithTag("Adventure Data").GetComponent<AdventureData>();
             
             if(SaveSceneInAwake){
                 SaveSceneNow();
@@ -53,33 +61,43 @@ namespace Adventure{
         }
 
 
-        //async void Start(){// repop enemy
-            //string scene_name = SceneManager.GetActiveScene().name;
-            //await Task.Delay(repop_time);
+        /*
+        async void Start(){// repop enemy
+            string scene_name = SceneManager.GetActiveScene().name;
+            await Task.Delay(repop_time);
 
 
-            //if(scene_name != SceneManager.GetActiveScene().name){ return; }
+            if(scene_name != SceneManager.GetActiveScene().name){ return; }
 
-            //foreach(GameObject o in objects){
-                //if(!o.activeSelf){ o.SetActive(true); }
-            //}
-        //}
+            foreach(GameObject o in objects){
+                if(!o.activeSelf){ o.SetActive(true); }
+            }
+        }
+        */
 
         public async void SceneChange(string scene_name){
             
             await SaveInfo("RECENT");
             
-            SceneManager.LoadSceneAsync(scene_name, LoadSceneMode.Single);
+            AsyncOperationHandle<SceneInstance> handle = Addressables.LoadSceneAsync(scene_name, LoadSceneMode.Single);
+            await handle.Task;
         }
 
 
         private async Task LoadInfo(string FileName){
             objects = new List<GameObject>();
+            string json;
             
+#if UNITY_EDITOR
             AsyncOperationHandle<TextAsset> handle = Addressables.LoadAssetAsync<TextAsset>(@InfoPath + @FileName + @".json");
             TextAsset txt = await handle.Task;
             Debug.Log(FileName);
-            string json = txt.ToString();
+            json = txt.ToString();
+#else
+            StreamReader reader = new StreamReader(@InfoPath + @FileName + @".json");
+            json = reader.ReadToEnd();
+            reader.Close();
+#endif
 
             
             Adventurers ads = JsonUtility.FromJson<Adventurers>(json);
@@ -87,6 +105,7 @@ namespace Adventure{
             for(int i = 0;i < ads.info.Length;i++){
                 await GenerateAdventurer(ads.info[i], i);
             }
+
         }
 
         private async Task SaveInfo(string FileName){
@@ -94,6 +113,9 @@ namespace Adventure{
             string pre_path = @InfoPath + @FileName + @"_.json";
             if(File.Exists(save_path)){
                 File.Move(save_path, pre_path);
+#if UNITY_EDITOR
+                File.Move(save_path + ".meta", pre_path + ".meta");
+#endif
             }
         
             int num_ads = objects.Count;
@@ -117,17 +139,22 @@ namespace Adventure{
             writer.Flush();
             writer.Close();
             
-            Assert.IsTrue(File.Exists(save_path), "Cannot saved " + save_path);
+            if(!File.Exists(save_path)){
+                File.Move(pre_path, save_path);
+            }
             
             AdventureToBattle.SavedInfoName = FileName;
             if(File.Exists(pre_path)){
                 File.Delete(pre_path);
             }
+#if UNITY_EDITOR
+            File.Move(pre_path + ".meta", save_path + ".meta");
+#endif
 
         }
         
         private async Task GenerateAdventurer(AdventurerInfo info, int i){// プレハブを指定位置に生成
-            string path = AdventureData.GetAdventurePath(info.name);
+            string path = adv_data.GetAdventurePath(info.name);
             Assert.IsFalse(path == null, "Cannot Find Adventurer: " + info.name);
             AsyncOperationHandle<GameObject> handle = Addressables.InstantiateAsync(path, new Vector3(i, i, i), Quaternion.identity);
 

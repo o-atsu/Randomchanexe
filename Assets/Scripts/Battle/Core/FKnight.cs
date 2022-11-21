@@ -24,15 +24,19 @@ namespace Battle{
 
                 int[] player_pos = battle_controller.GetPosition(player_id);
                 
+                await CheckScene();
                 int m = ActMove(new int[]{position[0], position[1] + Random.Range(-1, 2)});
 
                 
                 await Task.Delay(cooltime);
+                await CheckScene();
                 m = ActMove(new int[]{position[0] + Random.Range(-1, 2), position[1]});
                 if(Mathf.Abs(position[1] - player_pos[1]) < 2){
                     int[] pre_pos = position;
+                    await CheckScene();
                     m = ActMove(new int[]{BattleController.stage_width / 2, position[1]});
                     await AttackEvent(1);
+                    await CheckScene();
                     m = ActMove(pre_pos);
                     
                 }

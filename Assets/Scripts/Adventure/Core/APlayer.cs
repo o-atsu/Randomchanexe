@@ -15,31 +15,12 @@ namespace Adventure{
         [SerializeField]
         private Attack[] get_attacks; 
         private int[] select_attacks = new int[]{1, 1, 1}; 
+        
+        private AttackData atk_data;
 
 
         public bool ChangeAttacks(int s_index, int after){
-            /*
-            if(before != after){// 同じ値の引数でないなら入れ替え
-                int b_pos = -1;
-                int a_pos = -1;
-                for(int i = 0;i < select_attacks.Length;i++){
-                    if(before == select_attacks[i]){ b_pos = select_attacks[i]; }
-                    if(after == select_attacks[i]){ a_pos = select_attacks[i]; }
-                }
-                if(b_pos == -1){
-                    Debug.Log("invalid argument in chenge_attacks");
-                    return false;
-                }else if(a_pos == -1){
-                    Debug.Log("invalid argument in chenge_attacks");
-                    return false;
-                }else{
-                    select_attacks[b_pos] = after;
-                    select_attacks[a_pos] = before;
-                }
-                    
-            }
-            */
-            if(s_index != -1){ select_attacks[s_index] = after; }
+            if(s_index != -1){ select_attacks[s_index - 1] = after; }
 
 
             Attack[] atks = new Attack[num_attacks];
@@ -49,9 +30,9 @@ namespace Adventure{
             }
             AdventureToBattle.select_attacks = atks;
 
-            // Debug.Log("Changed: " + after + " in " + s_index);
-            Debug.Log("Attacks: " + select_attacks[0] + ", " + select_attacks[1] + ", " + select_attacks[2]);
-            Debug.Log("Attacks: " + AdventureToBattle.select_attacks[0].GetName() + ", " + AdventureToBattle.select_attacks[1].GetName() + ", " + AdventureToBattle.select_attacks[2].GetName());
+            Debug.Log("Changed: " + after + " in " + s_index);
+            // Debug.Log("Attacks: " + select_attacks[0] + ", " + select_attacks[1] + ", " + select_attacks[2]);
+            // Debug.Log("Attacks: " + AdventureToBattle.select_attacks[0].GetName() + ", " + AdventureToBattle.select_attacks[1].GetName() + ", " + AdventureToBattle.select_attacks[2].GetName());
             return true;
         }
 
@@ -60,6 +41,7 @@ namespace Adventure{
             base.init(info);
             
             List<Attack> rewarded = BattleToAdventure.RewardAttacks;
+            atk_data = GameObject.FindGameObjectWithTag("Attack Data").GetComponent<AttackData>();
             
             string[] atks = info.additional.Split(',');
             get_attacks = new Attack[atks.Length + rewarded.Count - num_attacks - 2];
@@ -69,15 +51,17 @@ namespace Adventure{
             Assert.IsTrue(atks[num_attacks + 1] == "GET", "additional info in APlayer is invalid");
             for(int i = 1;i < num_attacks + 1;i++){
                 select_attacks[i - 1] = int.Parse(atks[i]);
+                Debug.Log("select_attacks: " + atk_data.NameToAttack(atks[i]));
             }
             
 
             bool[] new_atk = new bool[rewarded.Count];
             for(int i = 0;i < rewarded.Count;i++){ new_atk[i] = true; }
             
+
             for(int i = num_attacks + 2;i < atks.Length;i++){
-                Debug.Log(atks[i]);
-                get_attacks[i - num_attacks - 2] = AttackData.NameToAttack(atks[i]);
+                get_attacks[i - num_attacks - 2] = atk_data.NameToAttack(atks[i]);
+                Debug.Log("get_attacks: " + atk_data.NameToAttack(atks[i]));
                 
                 for(int k = 0;k < rewarded.Count;k++){
                     if(atks[i] == rewarded[k].GetName()){ new_atk[k] = false; }
@@ -85,9 +69,14 @@ namespace Adventure{
                 }
             }
             
+            int added = 0;
             for(int i = 0;i < rewarded.Count;i++){
-                if(new_atk[i]){ get_attacks[get_attacks.Length - i - 1] = rewarded[i]; }
+                if(new_atk[i]){
+                    get_attacks[get_attacks.Length - i - 1] = rewarded[i];
+                    added ++;
+                }
             }
+            System.Array.Resize<Attack>(ref get_attacks, atks.Length + added - num_attacks - 2);
 
             bool saved = ChangeAttacks(-1, -1);
             BattleToAdventure.RewardAttacks = new List<Attack>();
@@ -116,7 +105,8 @@ namespace Adventure{
 
             save_atks += "GET,";
             foreach(Attack a in get_attacks){
-                save_atks += a.GetName() + ",";
+                Debug.Log(a);
+                save_atks += a.GetName() + ","; // get_attacksがNull
             }
             save_atks = save_atks.Remove(save_atks.Length - 1, 1);
 

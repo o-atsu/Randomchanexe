@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.Assertions;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using TMPro;
@@ -11,29 +12,25 @@ using Battle;
 
 public class AttackButton : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler{
 
-    public static Dictionary<string, string> icon_file = new Dictionary<string, string>(){
-        {"大剣","Sword"},
-        {"パンチ","Punch"},
-        {"ビーム","Beam"},
-        {"Xビット","Xbit"},
-        {"ファイアーブレード","Fireblade"}
-    };
+
 
     private int atk_index;
     private string txt;
     private Animator anim;
     private FPlayer fplayer;
+    private GameObject selected;
 
 
-    public async void init(string atk, string name, int i){
+    public void init(string atk, string name, Sprite icon, int i){
         anim = gameObject.GetComponent<Animator>();
         fplayer = GameObject.FindGameObjectWithTag("Player").GetComponent<FPlayer>();
+        Debug.Log(GameObject.FindGameObjectWithTag("Player"));
+        Assert.IsFalse(anim == null, "Cannot Find Animator!");
+        Assert.IsFalse(fplayer == null, "Cannot Find Player Tag!");
 
+        selected = transform.GetChild(0).gameObject;
         Image img = transform.GetChild(1).gameObject.GetComponent<Image>();
         TextMeshProUGUI tmp = transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>();
-
-        AsyncOperationHandle<Sprite> handle = Addressables.LoadAssetAsync<Sprite>(IconData.GetIconPath(icon_file[atk]));
-        Sprite icon = await handle.Task;
 
         img.sprite = icon;
         tmp.text = name;
@@ -48,9 +45,9 @@ public class AttackButton : MonoBehaviour, IPointerDownHandler, IPointerEnterHan
         anim.SetBool("Highlight", false);
     }
 
-    public async void OnPointerDown(PointerEventData eventData){
+    public void OnPointerDown(PointerEventData eventData){
         anim.SetBool("Highlight", false);
-        await fplayer.AttackEvent(atk_index);
+        Task atk = fplayer.AttackEvent(atk_index);
     }
 
     public void OnPointerEnter(PointerEventData eventData){

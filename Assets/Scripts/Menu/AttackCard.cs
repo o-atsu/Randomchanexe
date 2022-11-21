@@ -10,14 +10,6 @@ using TMPro;
 
 public class AttackCard : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler{
 
-    public static Dictionary<string, string> icon_file = new Dictionary<string, string>(){
-        {"大剣","Sword"},
-        {"パンチ","Punch"},
-        {"ビーム","Beam"},
-        {"Xビット","Xbit"},
-        {"ファイアーブレード","Fireblade"}
-    };
-
     private bool is_set;
     private int icon_id;
     private string txt;
@@ -25,15 +17,13 @@ public class AttackCard : MonoBehaviour, IPointerDownHandler, IPointerEnterHandl
     private Animator anim;
 
 
-    public async void init(string atk, string name, int i, bool isset){
+    public void init(string atk, string name, Sprite icon, int i, bool isset){
         anim = gameObject.GetComponent<Animator>();
         custom = transform.parent.parent.gameObject.GetComponent<CustomizeAttack>();
 
         Image img = transform.GetChild(1).gameObject.GetComponent<Image>();
         TextMeshProUGUI tmp = transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>();
 
-        AsyncOperationHandle<Sprite> handle = Addressables.LoadAssetAsync<Sprite>(IconData.GetIconPath(icon_file[atk]));
-        Sprite icon = await handle.Task;
 
         img.sprite = icon;
         tmp.text = name;
@@ -47,6 +37,8 @@ public class AttackCard : MonoBehaviour, IPointerDownHandler, IPointerEnterHandl
     public int GetId(){ return icon_id; }
 
     public string GetText(){ return txt; }
+    
+    public Sprite GetIcon(){ return transform.GetChild(1).gameObject.GetComponent<Image>().sprite; }
 
     void OnDisable(){
         anim.SetBool("Highlight", false);
@@ -73,10 +65,8 @@ public class AttackCard : MonoBehaviour, IPointerDownHandler, IPointerEnterHandl
         anim.SetBool("Select", false);
     }
 
-    public async Task OnChange(string atk_name){
+    public void OnChange(Sprite icon){
         Image img = transform.GetChild(1).gameObject.GetComponent<Image>();
-        AsyncOperationHandle<Sprite> handle = Addressables.LoadAssetAsync<Sprite>(IconData.GetIconPath(icon_file[atk_name]));
-        Sprite icon = await handle.Task;
 
         img.sprite = icon;
     }

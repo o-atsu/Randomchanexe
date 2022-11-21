@@ -21,6 +21,10 @@ public class SortButtons : MonoBehaviour{
 
         Attack[] s_atks = AdventureToBattle.select_attacks;
 
+        while(GameObject.FindGameObjectWithTag("Player") == null){
+            await Task.Delay(10);
+        }
+
         float columns = (float)s_atks.Length;
         for(int i = 0;i < s_atks.Length;i++){
             GameObject obj = await GenerateCard(s_atks[i], (i + 1).ToString(), i + 1);
@@ -40,7 +44,11 @@ public class SortButtons : MonoBehaviour{
                 
         AttackButton ab = card.GetComponent<AttackButton>();
         Assert.IsFalse(ab == null, "AttackButton Is Not Attached in " + atk.GetName());
-        ab.init(atk.GetName(), name, i);
+        
+        while(GameObject.FindGameObjectWithTag("Player") == null){
+            await Task.Delay(100);
+        }
+        ab.init(atk.GetName(), name, atk.GetIcon(), i);
 
         return card;
     }

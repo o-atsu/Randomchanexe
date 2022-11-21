@@ -162,7 +162,12 @@ ModelImporter:
   - first:
       74: -2440204804630385279
     second: Mesh-TwoHanded-Weapon|Motion|Take 001|BaseLayer
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Karate
+    second: {fileID: 2100000, guid: 8194168061bb8194eaf51a38ebb68ed5, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Battle{// 末端クラスでのみAwake使いたいね
+namespace Battle{
 
     public class FPlayer : Fighter{
         
@@ -41,6 +41,7 @@ namespace Battle{// 末端クラスでのみAwake使いたいね
             await Task.Delay(attacks[i].GetStartup() - pre_action);
             
             anim.SetTrigger("Attacked");
+            audio_source.PlayOneShot(attack_ses[NameToAnimID[attacks[i].GetName()] - 1]);
             await Task.Delay(pre_action);
             int a = ActAttack(attacks[i]);
 
@@ -76,7 +77,5 @@ namespace Battle{// 末端クラスでのみAwake使いたいね
             await AttackEvent(3);
         }
 
-        
-        
     }
 }

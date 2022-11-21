@@ -29,7 +29,7 @@ public class SortAttackCards : MonoBehaviour{
             int[] s_atks = aplayer.GetSelectAttacks();
             float columns = (float)s_atks.Length;
             for(int i = 0;i < s_atks.Length;i++){
-                GameObject obj = await GenerateCard(g_atks[s_atks[i] - 1], (i + 1).ToString(), s_atks[i], true);
+                GameObject obj = await GenerateCard(g_atks[s_atks[i] - 1], (i + 1).ToString(), i + 1, true);
 
                 Vector2 pos = new Vector2((i % columns) * (duration.x % width) - Mathf.Floor(columns / 2.0f) * duration.x, -Mathf.Floor((float)i / columns) * duration.y);// widthを超えるカードは折り返し
                 obj.GetComponent<RectTransform>().anchoredPosition = pos;
@@ -53,7 +53,7 @@ public class SortAttackCards : MonoBehaviour{
                 
         AttackCard ac = card.GetComponent<AttackCard>();
         Assert.IsFalse(ac == null, "AttackCard Is Not Attached in " + atk.GetName());
-        ac.init(atk.GetName(), name, i, isset);
+        ac.init(atk.GetName(), name, atk.GetIcon(), i, isset);
 
         return card;
     }

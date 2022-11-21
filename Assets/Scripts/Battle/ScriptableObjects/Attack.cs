@@ -7,6 +7,8 @@ public class Attack : ScriptableObject{
     [SerializeField]
     private string display_name;// *DO NOT USE COMMA(,)*
     [SerializeField]
+    private Sprite icon;
+    [SerializeField]
     private int damage;
     [SerializeField]
     private List<rangeclass> range;
@@ -30,6 +32,8 @@ public class Attack : ScriptableObject{
     public int GetStartup(){ return startup; }
 
     public int GetRecovery(){ return recovery; }
+    
+    public Sprite GetIcon(){ return icon; }
 
 
     public override string ToString(){

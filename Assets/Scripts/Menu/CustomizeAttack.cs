@@ -16,9 +16,6 @@ public class CustomizeAttack : MonoBehaviour{
     private int s_index;
     private int after;
 
-    void Start(){// call OnEnable at first
-        gameObject.SetActive(false);
-    }
 
     void OnEnable(){
         set_cards = new List<GameObject>();
@@ -28,14 +25,6 @@ public class CustomizeAttack : MonoBehaviour{
         current = null;
         aplayer = GameObject.FindGameObjectWithTag("Player").GetComponent<APlayer>();
         s_index = after = -1;
-    }
-
-    private int IdToIndex(int i, bool isset){
-        if(isset){
-            return set_ids.IndexOf(i);
-        }else{
-            return get_ids.IndexOf(i);
-        }
     }
 
     void OnDisable(){
@@ -55,29 +44,29 @@ public class CustomizeAttack : MonoBehaviour{
         }
     }
 
-    public async void SelectCard(int card_id, bool isset){
+    public void SelectCard(int card_id, bool isset){
         AttackCard next;
         if(isset){
-            next = set_cards[IdToIndex(card_id, true)].GetComponent<AttackCard>();
+            next = set_cards[card_id - 1].GetComponent<AttackCard>();
         }else{
-            next = get_cards[IdToIndex(card_id, false)].GetComponent<AttackCard>();
+            next = get_cards[card_id - 1].GetComponent<AttackCard>();
         }
-
 
         if(current != null){ current.OnDeselect(); }
         next.OnSelect();
         if(isset){
-            s_index = IdToIndex(card_id, true);
+            s_index = card_id;
         }else{
             after = card_id;
         }
         current = next;
 
         if(s_index != -1 && after != -1){
-            AttackCard b = set_cards[s_index].GetComponent<AttackCard>();
-            string a = get_cards[IdToIndex(after, false)].GetComponent<AttackCard>().GetText();
+            AttackCard b = set_cards[s_index - 1].GetComponent<AttackCard>();
+            AttackCard a = get_cards[after - 1].GetComponent<AttackCard>();
             aplayer.ChangeAttacks(s_index, after);
-            await b.OnChange(a);
+            set_ids[s_index - 1] = after;
+            b.OnChange(a.GetIcon());
 
             next.OnDeselect();
             current = null;
