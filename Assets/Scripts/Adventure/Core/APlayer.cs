@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
+/*
+自機の探索キャラクターにアタッチするクラス
+    
+*/
 namespace Adventure{
     public class APlayer : AdventureCharacter{
         [SerializeField]
-        private List<string> player_names;
+        private List<string> player_names;// 戦闘時の敵キャラクター一覧
         [SerializeField]
-        private List<posclass> player_pos;
+        private List<posclass> player_pos;// 戦闘開始時の位置
         [SerializeField]
-        private int num_attacks = 3;
+        private int num_attacks = 3;// セットできる攻撃の数
 
         [SerializeField]
-        private Attack[] get_attacks; 
-        private int[] select_attacks = new int[]{1, 1, 1}; 
+        private Attack[] get_attacks;// 獲得済みの攻撃
+        private int[] select_attacks = new int[]{1, 1, 1};// セットした攻撃のindex
         
         private AttackData atk_data;
 
@@ -43,12 +47,14 @@ namespace Adventure{
             List<Attack> rewarded = BattleToAdventure.RewardAttacks;
             atk_data = GameObject.FindGameObjectWithTag("Attack Data").GetComponent<AttackData>();
             
+            // 追加情報：セット済みAttack, 獲得済みAttack
             string[] atks = info.additional.Split(',');
             get_attacks = new Attack[atks.Length + rewarded.Count - num_attacks - 2];
             select_attacks = new int[num_attacks];
             
             Assert.IsTrue(atks[0] == "SELECT", "additional info in APlayer is invalid");
             Assert.IsTrue(atks[num_attacks + 1] == "GET", "additional info in APlayer is invalid");
+            // セット済みAttackの反映
             for(int i = 1;i < num_attacks + 1;i++){
                 select_attacks[i - 1] = int.Parse(atks[i]);
                 Debug.Log("select_attacks: " + atk_data.NameToAttack(atks[i]));
@@ -59,6 +65,7 @@ namespace Adventure{
             for(int i = 0;i < rewarded.Count;i++){ new_atk[i] = true; }
             
 
+            // 獲得済みAttackの反映
             for(int i = num_attacks + 2;i < atks.Length;i++){
                 get_attacks[i - num_attacks - 2] = atk_data.NameToAttack(atks[i]);
                 Debug.Log("get_attacks: " + atk_data.NameToAttack(atks[i]));
@@ -69,6 +76,7 @@ namespace Adventure{
                 }
             }
             
+            // 新たに獲得したAttackの反映
             int added = 0;
             for(int i = 0;i < rewarded.Count;i++){
                 if(new_atk[i]){

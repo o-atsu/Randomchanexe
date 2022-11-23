@@ -10,7 +10,11 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 
 
-
+/*
+戦闘シーンでの盤面情報の保存, 管理をするクラス
+    Move, Attack, DefeatedはFighterから呼び出される
+    初期化時にAdventureToBattleからFighter名を取得, 生成
+*/
 namespace Battle{
     public class BattleController : MonoBehaviour{
         // public static int CPM = 120;// Command Per Minite
@@ -27,7 +31,7 @@ namespace Battle{
         private Dictionary<int, GameObject> fighters;
         private Dictionary<int, bool> islive;
         private int[,] field_info;// Down-Left is {0, 0}
-        private FighterData ftr_data;
+        private AssetData ftr_data;
 
         private string adv_scene = "Playground";
 
@@ -38,7 +42,7 @@ namespace Battle{
             List<string> enemy_names = AdventureToBattle.EnemyNames;
             List<int[]> player_pos = AdventureToBattle.PlayerPositions;
             List<int[]> enemy_pos = AdventureToBattle.EnemyPositions;
-            ftr_data = GameObject.FindGameObjectWithTag("Fighter Data").GetComponent<FighterData>();
+            ftr_data = GameObject.FindGameObjectWithTag("Fighter Data").GetComponent<AssetData>();
 
             fighters = new Dictionary<int, GameObject>();
             islive = new Dictionary<int, bool>();
@@ -62,7 +66,7 @@ namespace Battle{
             ShowField();
         }
 
-        private void ShowField(){
+        private void ShowField(){// FOR DEBUG
             string ret = "Field Information:\n";
             for(int column = field_info.GetLength(1) - 1;column >= 0;column--){
                 for(int row = 0;row < field_info.GetLength(0);row++){
@@ -82,7 +86,7 @@ namespace Battle{
         }
 
         private async Task GenerateFighter(string name, bool is_player, int[] field_pos){// プレハブを指定位置に生成
-            string path = ftr_data.GetFighterPath(name);
+            string path = ftr_data.GetPath(name);
             Assert.IsFalse(path == null, "Cannot Find Fighter: " + name);
             AsyncOperationHandle<GameObject> handle = Addressables.InstantiateAsync(path);
 

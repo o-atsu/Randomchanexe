@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+探索パートから戦闘パートへ渡すパラメータを保存するstaticクラス
+*/
 public class AdventureToBattle{
     public static List<string> PlayerNames = new List<string>();
     public static List<string> EnemyNames = new List<string>();

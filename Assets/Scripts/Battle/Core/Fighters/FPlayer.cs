@@ -4,12 +4,15 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/*
+自機の戦闘キャラクター(RandomChanBattle)にアタッチするクラス
+    OnAttack* イベントはPlayerInputより呼び出される
+*/
 namespace Battle{
-
     public class FPlayer : Fighter{
         
         private Dictionary<string, int> NameToAnimID = new Dictionary<string, int>(){{"ビーム", 1}, {"ファイアーブレード", 2}, {"パンチ", 3}, {"大剣", 4}, {"Xビット", 5}};
-        private int pre_action = 200;
+        private int pre_action = 200;// 倒すと獲得できるAttack
         
         private Vector2 now = new Vector2(0.0f, 0.0f);
         private bool IsIdle = true;
@@ -33,18 +36,22 @@ namespace Battle{
 
             int i = atk_id - 1;
 
+            // 予備動作
             IsIdle = false;
             anim.SetInteger("motion", NameToAnimID[attacks[i].GetName()]);
             anim.SetTrigger("Trigger");
             stage_effector.Startup(true, position, attacks[i]);
             
+            // アニメーション切り替え
             await Task.Delay(attacks[i].GetStartup() - pre_action);
             
+            // 攻撃判定
             anim.SetTrigger("Attacked");
             audio_source.PlayOneShot(attack_ses[NameToAnimID[attacks[i].GetName()] - 1]);
             await Task.Delay(pre_action);
             int a = ActAttack(attacks[i]);
 
+            // 後隙
             await Task.Delay(attacks[i].GetRecovery());
             IsIdle = true;
         }

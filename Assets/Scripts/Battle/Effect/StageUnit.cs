@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
+/*
+攻撃の情報をマテリアルのfloatに知らせるスクリプト
+    StageEffecterから該当する位置のユニットが呼び出される
+    エフェクトの内容はシェーダーで記述
+*/
 namespace Battle{
     public class StageUnit : MonoBehaviour
     {
         [SerializeField]
-        private int frequency = 4;
+        private int frequency = 4;// 等間隔に(攻撃時間 / frequency) 回だけマテリアルに値を設定
 
         private Material mat;
 

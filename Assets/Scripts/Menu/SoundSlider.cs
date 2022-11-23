@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 
+/*
+音量調整用スライダーにアタッチするスクリプト
+    AudioMixerの音量とスライダーの値を同期
+*/
 public class SoundSlider : MonoBehaviour
 {
     [SerializeField]

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
+/*
+子オブジェクトの各ユニット(floor(\d)(\d))を取得し, 攻撃位置のStageUnitのStartupを呼び出すスクリプト
+*/
 namespace Battle{
     public class StageEffector : MonoBehaviour
     {
@@ -15,7 +18,7 @@ namespace Battle{
             if(children.childCount == 0){ return; }
             foreach(Transform floor in children){
                 string child_name = floor.name;
-                // floor(\d)(\d) のみ検出
+                // オブジェクト名からfloor(\d)(\d) のみ検出
                 if(!System.Text.RegularExpressions.Regex.IsMatch(child_name, @"floor\d\d")){ continue; }
                 // charからintに変換
                 int w = child_name[5] - '0';
@@ -27,6 +30,7 @@ namespace Battle{
 
         }
 
+        // 攻撃開始時にStageUnitのStartupを呼び出す
         public void Startup(bool isplayer, int[] pos, Attack atk){
             // Debug.Log("StartUp");
             List<int[]> range = atk.GetRange();

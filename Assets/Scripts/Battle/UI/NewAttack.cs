@@ -9,10 +9,12 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using TMPro;
 using Battle;
 
+
+/*
+勝利時の獲得アイコンを表示するクラス
+    BattleToAdventureより獲得した攻撃を取得
+*/
 public class NewAttack : MonoBehaviour{
-
-
-
 
     [SerializeField]
     private int reward_index = 0;

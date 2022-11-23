@@ -8,6 +8,10 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using Adventure;
 
+/*
+APlayerクラスから攻撃一覧を取得し, 対応するカードを生成するクラス
+    Enable時にカードのインスタンスを生成
+*/
 public class SortAttackCards : MonoBehaviour{
     [SerializeField]
     private string prefab_name = "AttackCard";
@@ -26,6 +30,7 @@ public class SortAttackCards : MonoBehaviour{
         Attack[] g_atks = aplayer.GetGetAttacks();
 
         if(set_attack){
+            // 選択した攻撃一覧を表示
             int[] s_atks = aplayer.GetSelectAttacks();
             float columns = (float)s_atks.Length;
             for(int i = 0;i < s_atks.Length;i++){
@@ -35,6 +40,7 @@ public class SortAttackCards : MonoBehaviour{
                 obj.GetComponent<RectTransform>().anchoredPosition = pos;
             }
         }else{
+            // 取得した攻撃一覧を表示
             float columns = Mathf.Min((float)g_atks.Length, Mathf.Floor(width / duration.x));
             for(int i = 0;i < g_atks.Length;i++){
                 GameObject obj = await GenerateCard(g_atks[i], g_atks[i].GetName(), i + 1, false);
@@ -46,6 +52,7 @@ public class SortAttackCards : MonoBehaviour{
     }
 
 
+    // 攻撃の情報からカードを生成
     private async Task<GameObject> GenerateCard(Attack atk, string name, int i, bool isset){
 
         AsyncOperationHandle<GameObject> handle = Addressables.InstantiateAsync(prefab_name, transform);

@@ -10,9 +10,13 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using TMPro;
 using Battle;
 
+/*
+攻撃ボタンにアタッチするクラス
+    SortButtonsによって生成, 初期化される. 
+    クリック時にFPlayerのAttackEventを呼び出し
+        Child ... 0: 選択時のエフェクト, 1: アイコン, 2: 攻撃名
+*/
 public class AttackButton : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler{
-
-
 
     private int atk_index;
     private string txt;

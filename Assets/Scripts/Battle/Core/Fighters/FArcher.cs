@@ -4,6 +4,9 @@ using System.Threading.Tasks;
 using UnityEngine;
 
 
+/*
+戦闘パートのArcherWarrierのルーチンを記述したクラス
+*/
 namespace Battle{
     public class FArcher : FEnemy{
 

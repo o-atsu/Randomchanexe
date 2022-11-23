@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+MenuTextの選択, 非選択とパネルの表示, 非表示を同期させるクラス
+*/
 public class ShowPanel : MenuText{
 
     [SerializeField]

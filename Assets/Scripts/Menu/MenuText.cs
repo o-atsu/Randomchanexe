@@ -4,6 +4,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Assertions;
 
+/*
+メニューの選択テキストにアタッチするクラス
+    インスタンスのIDを一意に決定
+    選択, 非選択されたときの処理は継承先クラスで記述
+    マウスの接触とクリックを検知し, AnimatorのTriggerに反映する
+*/
 public class MenuText : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler{
     [SerializeField]
     private int text_id = 0;// 禁止：65535

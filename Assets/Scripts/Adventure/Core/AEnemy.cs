@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
+/*
+探索パートの敵キャラクターにアタッチするクラス
+    トリガーに接触すると, AdventureToBattleに名前と位置を渡し, シーン遷移を呼び出す
+*/
 namespace Adventure{
 public class AEnemy : AdventureCharacter{
         [SerializeField]
-        private string scene_name = "test";
+        private string scene_name = "test";// 戦闘用シーンの名前
         [SerializeField]
-        private List<string> enemies = new List<string>();
+        private List<string> enemies = new List<string>();// 戦闘時の敵キャラクター一覧
         [SerializeField]
-        private List<posclass> enemy_pos;
+        private List<posclass> enemy_pos;// 戦闘開始時の位置
 
         private AdventureController adventure_controller;
 

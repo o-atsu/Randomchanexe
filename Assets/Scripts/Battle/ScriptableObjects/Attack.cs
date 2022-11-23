@@ -2,20 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+攻撃の情報を保持したScriptable Object
+    初回ロード時にすべて読み込まれる
+*/
 [CreateAssetMenu(menuName = "ScriptableObject/Create Attack")]
 public class Attack : ScriptableObject{
     [SerializeField]
-    private string display_name;// *DO NOT USE COMMA(,)*
+    private string display_name;// 表示名, 禁止：「,」
     [SerializeField]
-    private Sprite icon;
+    private Sprite icon;// 表示アイコン
     [SerializeField]
-    private int damage;
+    private int damage;// ダメージ
     [SerializeField]
-    private List<rangeclass> range;
+    private List<rangeclass> range;// 攻撃範囲
     [SerializeField]
-    private int startup;// (milliseconds)
+    private int startup;// 予備動作時間 (milliseconds)
     [SerializeField]
-    private int recovery;// (milliseconds)
+    private int recovery;// 後隙の時間 (milliseconds)
 
    	public int GetDamage(){ return damage;}
 

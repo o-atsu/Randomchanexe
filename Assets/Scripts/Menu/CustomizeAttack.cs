@@ -5,6 +5,11 @@ using UnityEngine.UI;
 using Adventure;
 
 
+/*
+攻撃入れ替えを実行するクラス
+    カードの選択時にIDをs_indexかafterに代入
+        どちらも代入されたら入れ替え実行
+*/
 public class CustomizeAttack : MonoBehaviour{
 
     private List<GameObject> set_cards;
@@ -13,10 +18,11 @@ public class CustomizeAttack : MonoBehaviour{
     private List<int> get_ids;
     private APlayer aplayer;
     private AttackCard current;
-    private int s_index;
-    private int after;
+    private int s_index; // 選択した攻撃のindex(セット済み)
+    private int after; // 選択した攻撃のindex(未セット)
 
 
+    // アクティブになったら初期化
     void OnEnable(){
         set_cards = new List<GameObject>();
         set_ids = new List<int>();
@@ -32,6 +38,7 @@ public class CustomizeAttack : MonoBehaviour{
         s_index = after = -1;
     }
 
+    // カード生成時にAttackCardから呼び出してリストに登録
     public void SubscribeCard(GameObject card, bool isset){
         if(isset){
             set_cards.Add(card);
@@ -44,23 +51,22 @@ public class CustomizeAttack : MonoBehaviour{
         }
     }
 
+    // カード選択時の処理
     public void SelectCard(int card_id, bool isset){
         AttackCard next;
         if(isset){
             next = set_cards[card_id - 1].GetComponent<AttackCard>();
+            s_index = card_id;
         }else{
             next = get_cards[card_id - 1].GetComponent<AttackCard>();
+            after = card_id;
         }
 
         if(current != null){ current.OnDeselect(); }
         next.OnSelect();
-        if(isset){
-            s_index = card_id;
-        }else{
-            after = card_id;
-        }
         current = next;
 
+        // s_indexとafterがともに代入されたら入れ替えを実行
         if(s_index != -1 && after != -1){
             AttackCard b = set_cards[s_index - 1].GetComponent<AttackCard>();
             AttackCard a = get_cards[after - 1].GetComponent<AttackCard>();

@@ -2,12 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using WarriorAnimsFREE;
 
 
+/*
+戦闘パートの2HandedWarrierのルーチンを記述したクラス
+*/
 namespace Battle{
-    public class FMage : FEnemy{
+    public class F2Handed : FEnemy{
 
-
+        private WarriorController warrior_controller;
+        
+        public override void init(int id, int[] pos){
+            base.init(id, pos);
+            
+            warrior_controller = gameObject.GetComponent<WarriorController>();
+        }
 
         protected override async Task Pattern(){
             while(gameObject.activeSelf){

@@ -8,6 +8,10 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using Adventure;
 
+/*
+AdventureToBattleから攻撃一覧を取得し, 対応する攻撃ボタンを生成するクラス
+    Enable時にボタンのインスタンスを生成
+*/
 public class SortButtons : MonoBehaviour{
     [SerializeField]
     private string prefab_name = "AttackButton";

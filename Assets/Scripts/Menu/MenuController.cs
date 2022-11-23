@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+メニュー画面のテキストの選択, 非選択を管理するクラス
+    各MenuTextに一意にIDが割り振られているので, どれを選択したかを管理
+*/
 public class MenuController : MonoBehaviour{
 
     [SerializeField]
@@ -11,7 +15,7 @@ public class MenuController : MonoBehaviour{
     private int current;
 
     void Awake(){
-        current = 65535;
+        current = 65535;// 非選択時のIDに65535を割り当て
         text_ids = new int[menu_items.Length];
         for(int i = 0;i < menu_items.Length;i++){
             text_ids[i] = menu_items[i].GetId();

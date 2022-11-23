@@ -4,6 +4,10 @@ using System.Threading.Tasks;
 using UnityEngine;
 
 
+/*
+戦闘パートのFRandomChanのルーチンを記述したクラス
+    攻撃が増えてAnimatorの構成が変わるので, AttackEventも書き換え
+*/
 namespace Battle{
     public class FRandomChan : FEnemy{
 
@@ -42,6 +46,7 @@ namespace Battle{
 
             }
 
+            // 体力が半分以下になるとビームを放つ
             await CheckScene();
             m = ActMove(new int[]{BattleController.stage_width / 2, 1});
             await Task.Delay(cooltime);

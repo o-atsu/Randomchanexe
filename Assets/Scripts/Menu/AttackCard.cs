@@ -8,6 +8,12 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using TMPro;
 
+/*
+攻撃入れ替え画面で表示する攻撃カードにアタッチするクラス
+    SortAttacksによって生成, 初期化される
+        Child ... 0: 選択時のエフェクト, 1: アイコン, 2: 攻撃名
+    マウスの接触とクリックを検知し, AnimatorのTriggerに反映する
+*/
 public class AttackCard : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler{
 
     private bool is_set;

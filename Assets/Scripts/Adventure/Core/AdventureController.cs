@@ -13,16 +13,21 @@ using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEditor;
 #endif
 
-// シーン移行時にJSON形式のAdventureCharacterのsaved_infoを保存
-// シーン開始時にJSON形式でAdventureCharacterのsaved_infoを読み込み
+/*
+AdventureInfoのセーブとロード, 及びシーン遷移を適用するクラス
+    シーン移行時にJSON形式のAdventureCharacterのsaved_infoを保存
+    シーン開始時にJSON形式でAdventureCharacterのsaved_infoを読み込み
+*/
 namespace Adventure{
     public class AdventureController : MonoBehaviour{
         
         private AttackData atk_data;
-        private AdventureData adv_data;
+        private AssetData adv_data;
         
         [SerializeField]
         private bool SaveSceneInAwake = false;
+        [SerializeField]
+        private GameObject tutorial_panel;
 
         
 #if UNITY_EDITOR
@@ -31,11 +36,13 @@ namespace Adventure{
         private string InfoPath = Application.persistentDataPath + @"/";
 #endif
         private List<GameObject> objects;
+        public static bool initial_load = true;
 
 
 
         
-        private async void SaveSceneNow(){// FOR DEBUG
+        // FOR EDITOR 起動時にシーン上のAdventureCharacterのInfoをsaved.jsonに登録
+        private async void SaveSceneNow(){
             objects = new List<GameObject>();
             GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -48,8 +55,9 @@ namespace Adventure{
 
         async void Awake(){
             atk_data = GameObject.FindGameObjectWithTag("Attack Data").GetComponent<AttackData>();
-            adv_data = GameObject.FindGameObjectWithTag("Adventure Data").GetComponent<AdventureData>();
+            adv_data = GameObject.FindGameObjectWithTag("Adventure Data").GetComponent<AssetData>();
             
+            // FOR EDITOR
             if(SaveSceneInAwake){
                 SaveSceneNow();
                 return;
@@ -58,6 +66,12 @@ namespace Adventure{
             
             // await Task.Delay(1000);
             await LoadInfo(LoadInfoName);
+
+            // 初回ロード時のみチュートリアル画面を表示
+            if(initial_load){
+                initial_load = false;
+                tutorial_panel.SetActive(true);
+            }
         }
 
 
@@ -154,7 +168,7 @@ namespace Adventure{
         }
         
         private async Task GenerateAdventurer(AdventurerInfo info, int i){// プレハブを指定位置に生成
-            string path = adv_data.GetAdventurePath(info.name);
+            string path = adv_data.GetPath(info.name);
             Assert.IsFalse(path == null, "Cannot Find Adventurer: " + info.name);
             AsyncOperationHandle<GameObject> handle = Addressables.InstantiateAsync(path, new Vector3(i, i, i), Quaternion.identity);
 

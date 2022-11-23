@@ -7,6 +7,11 @@ using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
 using TMPro;
 
+/*
+戦闘キャラクターにアタッチするクラス
+    自機(FPlayer), 敵(FEnemy)はこれを継承する
+    Battle Controllerに対し, 即時移動, 即時攻撃を実行
+*/
 namespace Battle{
 public class Fighter : MonoBehaviour{
 
@@ -21,7 +26,7 @@ public class Fighter : MonoBehaviour{
         [SerializeField]
         protected int max_hp; // 最大HP
         [SerializeField]
-        protected TextMeshProUGUI name_text; // 
+        protected TextMeshProUGUI name_text; // 名前を表示するテキスト
         [SerializeField]
         protected Slider hp_bar; // HPバー
 
@@ -76,7 +81,7 @@ public class Fighter : MonoBehaviour{
         protected int ActMove(int[] pos){ // 絶対座標(pos)へ移動
             int ret = battle_controller.Move(fighter_id, pos);
             // Debug.Log(Name + ": Move from " + position[0] + ", " + position[1] + " to " + pos[0] + ", " + pos[1] + " : " + ret);
-            if(ret == 1){
+            if(ret == 1){// Battle Controllerにて移動できた場合
                 position = pos;
                 transform.position = BattleController.FieldPosToWorld(pos);
             }

@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+探索パートのキャラクターにアタッチするクラス
+    AdventureInfoに情報が記録され, 初期化時に反映
+    辞書(string, string)でInfoを保存
+*/
 namespace Adventure{
     public class AdventureCharacter : MonoBehaviour{
 
         [SerializeField]
-        private bool saved = true;
+        private bool saved = true;// 情報を保存するかどうか
         [SerializeField]
         private string prefab_name = "for_test";
         protected Dictionary<string, string> saved_component;
@@ -25,16 +30,16 @@ namespace Adventure{
             
             saved_component = new Dictionary<string, string>();
 
-            saved_component.Add("name", prefab_name);
-            saved_component.Add("active", true.ToString());
-            saved_component.Add("position_x", transform.position.x.ToString());
+            saved_component.Add("name", prefab_name);// プレハブ名
+            saved_component.Add("active", true.ToString());// アクティブかどうか
+            saved_component.Add("position_x", transform.position.x.ToString());// 位置
             saved_component.Add("position_y", transform.position.y.ToString());
             saved_component.Add("position_z", transform.position.z.ToString());
-            saved_component.Add("rotation_x", transform.rotation.x.ToString());
+            saved_component.Add("rotation_x", transform.rotation.x.ToString());// 回転
             saved_component.Add("rotation_y", transform.rotation.y.ToString());
             saved_component.Add("rotation_z", transform.rotation.z.ToString());
             saved_component.Add("rotation_w", transform.rotation.w.ToString());
-            saved_component.Add("additional", "");
+            saved_component.Add("additional", "");// 追加の情報(継承先用)
 
             return saved_component;
         }

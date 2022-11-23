@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
+/*
+メニューシーンを呼び出すボタンにアタッチするクラス
+    クリック時にメニューシーンを呼び出す
+*/
 public class MenuButton : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler{
 
     [SerializeField]

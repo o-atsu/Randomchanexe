@@ -5,6 +5,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
+/*
+メニューを閉じるボタンにアタッチするクラス
+*/
 public class CloseMenu : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler{
 
     [SerializeField]

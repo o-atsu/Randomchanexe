@@ -8,8 +8,13 @@ using UnityEngine.EventSystems;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 
+/*
+クリック時にタイトルから初回ロードに移行するクラス
+    ビルド後の環境では, 探索パートの盤面の初期化も行う
+*/
 public class TitleController : MonoBehaviour, IPointerDownHandler{
     
+    // 初回ロード時の盤面情報
     private string initial_json = @"{
     ""info"": [
         {
@@ -101,6 +106,7 @@ public class TitleController : MonoBehaviour, IPointerDownHandler{
         initialized = true;
         clicktostart.SetActive(true);
 #else
+        // 初期の盤面情報を保存
         initialized = false;
         
         string InfoPath = Application.persistentDataPath;

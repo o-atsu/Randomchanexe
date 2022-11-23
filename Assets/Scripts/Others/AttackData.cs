@@ -7,19 +7,22 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
 
+/*
+Attackクラスのアセット名とObjectを対応させるクラス
+    ゲームの初回ロード時に初期化, 全Scriptable Objectを読み込み
+*/
 public class AttackData : MonoBehaviour{
     
     [SerializeField]
     private string[] asset_names;
     
-    private static Dictionary<string, Attack> Attacks;// 攻撃名でAttackクラスのScriptableObjectを検索
-
+    [SerializeField]
     private string attackpath = "Assets/ScriptableObjects/Attacks/";
 
+    private static Dictionary<string, Attack> Attacks;// 攻撃名でAttackクラスのScriptableObjectを検索
 
 
-
-    
+    // 初期化, 全Scriptable Object読み込み
     public async Task Refresh(){
         DontDestroyOnLoad(gameObject);
         
